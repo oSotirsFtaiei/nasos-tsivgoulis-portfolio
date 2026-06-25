@@ -238,9 +238,8 @@
 
         .panel,
         .card,
-        .time,
         .pub,
-        .note {
+        .contactbox {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--r)
@@ -304,30 +303,28 @@
 
         .g2,
         .g3,
-        .timeline,
         .pubs {
             display: grid;
             gap: 16px
         }
 
         .card,
-        .time,
         .pub,
-        .note {
+        .contactbox {
             padding: 22px
         }
 
         .card h3,
-        .time h3 {
+        .pub h3,
+        .contactbox h3 {
             margin: 0 0 8px;
             font-size: 22px;
             line-height: 1.2
         }
 
         .card p,
-        .time p,
         .pub p,
-        .note p {
+        .contactbox p {
             margin: 0;
             color: var(--muted)
         }
@@ -349,14 +346,26 @@
             font-weight: 700
         }
 
-        .meta {
-            display: inline-flex;
-            margin-bottom: 10px;
-            color: #9a6b35;
-            font-size: 12px;
-            font-weight: 700;
+        .contactlist {
+            display: grid;
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .contactitem {
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .16)
+        }
+
+        .contactitem b {
+            display: block;
+            font-size: 13px;
             letter-spacing: .08em;
-            text-transform: uppercase
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            color: var(--muted)
         }
 
         .footer {
@@ -425,14 +434,12 @@
     <header class="header">
         <div class="container nav">
             <div class="brand">
-                <!--<div class="logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"-->
                 <div class="logo"><img src="Icons/logo.png" alt="logo" style="width: 44px;height: 44px;border-radius: 14px;"></div>
-                <div><b>Nasos Tsivgoulis</b><span data-i18n="brand_sub">sProfessional porsaatfasaolio</span></div>
+                <div><b>Nasos Tsivgoulis</b><span data-i18n="brand_sub">Bilingual professional portfolio</span></div>
             </div>
             <nav class="navlinks"><a href="#profile" data-i18n="nav_profile">Profile</a><a href="#focus"
-                    data-i18n="nav_focus">Focus</a><a href="#timeline" data-i18n="nav_timeline">Timeline</a><a
-                    href="#publications" data-i18n="nav_publications">Publications</a><a href="#links"
-                    data-i18n="nav_links">Links</a></nav>
+                    data-i18n="nav_focus">Focus Areas</a><a href="#publications" data-i18n="nav_publications">Selected
+                    public academic activity</a><a href="#contact" data-i18n="nav_contact">Contact</a></nav>
             <div class="controls">
                 <div class="switch"><button class="active" data-lang="en" aria-pressed="true">EN</button><button
                         data-lang="el" aria-pressed="false">EL</button></div><button class="icon" data-theme-toggle
@@ -445,29 +452,27 @@
             <div class="container hero-grid">
                 <div>
                     <div class="eyebrow fade" data-i18n="hero_eyebrow">Public professional portfolio</div>
-                    <h1 class="fade" data-i18n="hero_title">Rehabilitation medicine with a strong aesthetic restoration
-                        profile.</h1>
-                    <p class="lead fade" data-i18n="hero_lead">This portfolio presents the publicly visible profile of
-                        Dr. Athanasios “Nasos” Tsivgoulis across neurorehabilitation, aesthetic rehabilitation,
-                        injectables, and regenerative medicine, in both English and Greek.</p>
+                    <h1 class="fade" data-i18n="hero_title">Rehabilitation medicine with a focused public profile in
+                        aesthetics and neurorehabilitation.</h1>
+                    <p class="lead fade" data-i18n="hero_lead">A cleaner presentation of the publicly visible profile of
+                        Dr. Athanasios “Nasos” Tsivgoulis, designed to highlight core medical identity, focus areas,
+                        academic activity, and contact details in English and Greek.</p>
                     <div class="actions fade"><a class="btn primary" href="#profile"
-                            data-i18n="hero_cta_primary">Explore profile</a><a class="btn"
-                            href="https://guruderma.com/en/nasos-tsivgoulis/" target="_blank" rel="noopener noreferrer"
-                            data-i18n="hero_cta_secondary">Open public profile</a></div>
+                            data-i18n="hero_cta_primary">Explore profile</a><a class="btn" href="#contact"
+                            data-i18n="hero_cta_secondary">Go to contact</a></div>
                 </div>
                 <aside class="panel fade">
-                    <div class="meta" data-i18n="snapshot_kicker">Snapshot</div>
-                    <h2 data-i18n="snapshot_title">Physiatrist, rehabilitation specialist, and aesthetic practitioner
-                    </h2>
+                    <div class="eyebrow" data-i18n="snapshot_kicker">Snapshot</div>
+                    <h2 data-i18n="snapshot_title">Targeted public highlights</h2>
                     <div class="stats">
-                        <div class="stat"><b data-i18n="stat_1_title">PRM / Rehabilitation</b><span
-                                data-i18n="stat_1_body">Neurological rehabilitation background</span></div>
-                        <div class="stat"><b data-i18n="stat_2_title">AAAM</b><span data-i18n="stat_2_body">Board
-                                certified public branding</span></div>
-                        <div class="stat"><b data-i18n="stat_3_title">Injectables</b><span
-                                data-i18n="stat_3_body">Trainer and speaker positioning</span></div>
-                        <div class="stat"><b data-i18n="stat_4_title">Greece</b><span data-i18n="stat_4_body">Clinical
-                                and academic affiliations</span></div>
+                        <div class="stat"><b data-i18n="stat_1_title">PRM physician</b><span
+                                data-i18n="stat_1_body">Publicly presented in rehabilitation medicine</span></div>
+                        <div class="stat"><b data-i18n="stat_2_title">Attica Rehab</b><span data-i18n="stat_2_body">Head
+                                of Outpatient Department listing</span></div>
+                        <div class="stat"><b data-i18n="stat_3_title">Academic link</b><span
+                                data-i18n="stat_3_body">Research associate and neurology-linked profile</span></div>
+                        <div class="stat"><b data-i18n="stat_4_title">Aesthetic profile</b><span
+                                data-i18n="stat_4_body">Injectables, restoration, and AAAM branding</span></div>
                     </div>
                 </aside>
             </div>
@@ -476,28 +481,28 @@
             <div class="container">
                 <div class="head fade">
                     <h2 data-i18n="profile_title">Profile</h2>
-                    <p data-i18n="profile_intro">Dr. Tsivgoulis is a physician who
-                        works between physical medicine and rehabilitation, neurological rehabilitation, and aesthetic
-                        restoration.</p>
+                    <p data-i18n="profile_intro">Dr. Tsivgoulis combines a background in physical medicine and
+                        rehabilitation with a distinct clinical orientation towards aesthetic restoration and
+                        regenerative medicine.</p>
                 </div>
                 <div class="g2">
                     <article class="card fade">
                         <h3 data-i18n="profile_card1_title">Professional identity</h3>
-                        <p data-i18n="profile_card1_body">He isa rehabilitation doctor and
-                            aesthetic restoration physician, with emphasis on combining functional improvement of the
-                            body or face with injectable approaches.</p>
+                        <p data-i18n="profile_card1_body">Rehabilitation Doctor and Aesthetic Restoration Physician with
+                            AAAM Board Certification. His practice bridges neurological rehabilitation medicine with
+                            injectable therapies and regenerative-oriented aesthetic restoration.</p>
                         <div class="chips"><span class="chip">PRM</span><span class="chip"
                                 data-i18n="chip_aesthetic">Aesthetic restoration</span><span class="chip"
                                 data-i18n="chip_regenerative">Regenerative medicine</span></div>
                     </article>
                     <article class="card fade">
-                        <h3 data-i18n="profile_card2_title">Clinical positioning</h3>
-                        <p data-i18n="profile_card2_body">Public-facing material connects his practice to
-                            neurorehabilitation, spasticity-related work, facial and body function, and modern
-                            anti-aging protocols grounded in regenerative medicine.</p>
+                        <h3 data-i18n="profile_card2_title">Clinical and academic roles</h3>
+                        <p data-i18n="profile_card2_body">Head of Outpatient Department at Attica Rehabilitation Center,
+                            Research Associate at the Second Department of Neurology of Attikon University Hospital /
+                            NKUA, and active as an instructor and trainer in injectables and aesthetic medicine.</p>
                         <div class="chips"><span class="chip" data-i18n="chip_neuro">Neurorehabilitation</span><span
                                 class="chip" data-i18n="chip_injectables">Injectables</span><span class="chip"
-                                data-i18n="chip_antiaging">Anti-aging studies</span></div>
+                                data-i18n="chip_training">Training and teaching</span></div>
                     </article>
                 </div>
             </div>
@@ -505,58 +510,27 @@
         <section class="block" id="focus">
             <div class="container">
                 <div class="head fade">
-                    <h2 data-i18n="focus_title">Focus areas</h2>
-                    <p data-i18n="focus_intro">The portfolio below separates the main themes that appear repeatedly
-                        across public sources and event listings.</p>
+                    <h2 data-i18n="focus_title">Focus Areas</h2>
+                    <p data-i18n="focus_intro">Three core areas define his clinical and educational work.</p>
                 </div>
                 <div class="g3">
                     <article class="card fade">
-                        <h3 data-i18n="focus1_title">Neurological rehabilitation</h3>
-                        <p data-i18n="focus1_body">His background is described as rooted in neurological medical
-                            rehabilitation, including protocols aimed at functional recovery and restoration.</p>
+                        <h3 data-i18n="focus1_title">Physical medicine and rehabilitation</h3>
+                        <p data-i18n="focus1_body">Specialist in Physical Medicine and Rehabilitation with a clinical
+                            focus on neurological rehabilitation, spasticity management, and functional recovery
+                            protocols.</p>
                     </article>
                     <article class="card fade">
                         <h3 data-i18n="focus2_title">Aesthetic rehabilitation</h3>
-                        <p data-i18n="focus2_body">Public descriptions highlight a special interest in aesthetic
-                            rehabilitation, especially where appearance and function intersect in neurological patients.
-                        </p>
+                        <p data-i18n="focus2_body">Special interest in the aesthetic rehabilitation of neurological
+                            patients, combining functional restoration with injectable and regenerative approaches to
+                            facial and body appearance.</p>
                     </article>
                     <article class="card fade">
-                        <h3 data-i18n="focus3_title">Injectables and regenerative medicine</h3>
-                        <p data-i18n="focus3_body">Multiple public profiles connect his work to injectables, anti-aging
-                            protocols, and regenerative medicine-based aesthetic restoration.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="block" id="timeline">
-            <div class="container">
-                <div class="head fade">
-                    <h2 data-i18n="timeline_title">Affiliations and timeline</h2>
-                    <p data-i18n="timeline_intro">These items are shown as dated public references, so the site treats
-                        them as timeline entries rather than assuming every role is current.</p>
-                </div>
-                <div class="timeline">
-                    <article class="time fade">
-                        <div class="meta">2025</div>
-                        <h3 data-i18n="time1_title">ESO Stroke Summer School faculty listing</h3>
-                        <p data-i18n="time1_body">Listed as a Physical Medicine and Rehabilitation Doctor and Research
-                            Associate at the Second Department of Neurology, Attikon University Hospital / National and
-                            Kapodistrian University of Athens, with affiliation also shown to Attica Rehabilitation
-                            Center in Magoula.</p>
-                    </article>
-                    <article class="time fade">
-                        <div class="meta">Attica Rehabilitation Center</div>
-                        <h3 data-i18n="time2_title">Outpatient rehabilitation role</h3>
-                        <p data-i18n="time2_body">Attica Rehabilitation Center publicly lists Athanasios Tsivgoulis as a
-                            Physical Medicine and Rehabilitation Specialist and Head of Outpatient Department.</p>
-                    </article>
-                    <article class="time fade">
-                        <div class="meta">2022</div>
-                        <h3 data-i18n="time3_title">Centre Animus and University of Thessaly reference</h3>
-                        <p data-i18n="time3_body">A 2022 event program lists Athanasios Tsivgoulis, MD, FEBPRM as
-                            Scientific Director of Rehabilitation at Centre Animus and University Fellow in the
-                            Neurology Department of the University of Thessaly.</p>
+                        <h3 data-i18n="focus3_title">Injectables and regenerative practice</h3>
+                        <p data-i18n="focus3_body">Trainer and key opinion leader for injectable products including
+                            Botox, Dysport, Pluryal, and Jalupro. International trainer and speaker for Burgeon x
+                            Vivacy, with clinical activity across anti-aging and regenerative aesthetic protocols.</p>
                     </article>
                 </div>
             </div>
@@ -565,40 +539,49 @@
             <div class="container">
                 <div class="head fade">
                     <h2 data-i18n="pub_title">Selected public academic activity</h2>
-                    <p data-i18n="pub_intro">A few publicly visible items help frame the academic and educational side
-                        of the profile.</p>
+                    <p data-i18n="pub_intro">A structured overview of his academic affiliations, completed credentials,
+                        and broader professional and educational activity.</p>
                 </div>
                 <div class="pubs">
                     <article class="pub fade">
-                        <h3 data-i18n="pub1_title">Consensus work on spasticity management in multiple sclerosis</h3>
-                        <p data-i18n="pub1_body">Public references connect him to a 2022 consensus document on
-                            management of spasticity in multiple sclerosis.</p>
+                        <h3 data-i18n="pub1_title">Academic and institutional affiliations</h3>
+                        <p data-i18n="pub1_body">Research Associate, Second Department of Neurology, Attikon University
+                            Hospital / National and Kapodistrian University of Athens. Previous role as Scientific
+                            Director of Rehabilitation at Centre Animus, with a concurrent University Fellowship at the
+                            Neurology Department, University of Thessaly.</p>
                     </article>
                     <article class="pub fade">
-                        <h3 data-i18n="pub2_title">Instructor and trainer profile</h3>
-                        <p data-i18n="pub2_body">His Instagram profile and other public-facing pages describe him as a
-                            PRM MD, neurology instructor, injector trainer, key opinion leader, and AAAM board certified
-                            physician.</p>
+                        <h3 data-i18n="pub2_title">Degrees and certifications</h3>
+                        <p data-i18n="pub2_body">MD, FEBPRM (Fellow of the European Board of Physical and Rehabilitation
+                            Medicine). AAAM Board Certified in anti-aging and aesthetic medicine.</p>
                     </article>
                     <article class="pub fade">
-                        <h3 data-i18n="pub3_title">Clinical studies and protocol branding</h3>
-                        <p data-i18n="pub3_body">Public profile pages mention clinical studies in anti-aging and
-                            aesthetic restoration, and also reference a Guru FrameLift 3D facial reconstruction protocol
-                            signed by Dr. Nasos Tsivgoulis.</p>
+                        <h3 data-i18n="pub3_title">Teaching, speaking and editorial work</h3>
+                        <p data-i18n="pub3_body">Instructor and trainer in injectable and aesthetic medicine. Speaker at
+                            international congresses. Co-author of a 2022 consensus document on spasticity management in
+                            multiple sclerosis. Creator of the Guru FrameLift 3D facial reconstruction protocol.</p>
                     </article>
                 </div>
             </div>
         </section>
-        <section class="block" id="links">
+        <section class="block" id="contact">
             <div class="container">
                 <div class="head fade">
-                    <h2 data-i18n="links_title">Public links</h2>
-                    <p data-i18n="links_intro">The portfolio includes direct links to public pages that can be extended
-                        later with verified publications, media appearances, awards, or clinic details.</p>
+                    <h2 data-i18n="contact_title">Contact</h2>
+                    <p data-i18n="contact_intro">Get in touch or visit the clinic.</p>
                 </div>
                 <div class="g2">
-                    <article class="card fade">
-                        <h3 data-i18n="links_card1_title">Primary references</h3>
+                    <article class="contactbox fade">
+                        <h3 data-i18n="contact_box_title">Direct details</h3>
+                        <div class="contactlist">
+                            <div class="contactitem"><b data-i18n="contact_phone_label">Phone</b><span>Tel: 210 4567
+                                    890</span></div>
+                            <div class="contactitem"><b data-i18n="contact_address_label">Address</b><span>Defkaliwn 13,
+                                    Athens, 15125</span></div>
+                        </div>
+                    </article>
+                    <article class="contactbox fade">
+                        <h3 data-i18n="contact_links_title">Public profiles</h3>
                         <div class="chips" style="margin-top:0;margin-bottom:16px"><a class="btn"
                                 href="https://guruderma.com/en/nasos-tsivgoulis/" target="_blank"
                                 rel="noopener noreferrer">Guru Derma</a><a class="btn"
@@ -606,166 +589,160 @@
                                 rel="noopener noreferrer">Attica Rehab</a><a class="btn"
                                 href="https://www.instagram.com/drnasos/?hl=en" target="_blank"
                                 rel="noopener noreferrer">Instagram</a></div>
-                        <p data-i18n="links_card1_body">These links are placed as external references rather than
-                            embedded claims, keeping the portfolio easy to update as the public footprint evolves.</p>
+                        <p data-i18n="contact_links_body">Additional professional profiles are available at the links
+                            below.</p>
                     </article>
-                    <aside class="note fade">
-                        <h3 data-i18n="note_title">Editorial note</h3>
-                        <p data-i18n="note_body">This version intentionally distinguishes Athanasios Nasos Tsivgoulis
-                            from Georgios Tsivgoulis, because web results for the surname often surface a different
-                            neurologist.</p>
-                    </aside>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="footer">
-        <div class="container">
-            <div class="brand">
-                <div class="logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 20V8h3.4l5.6 7.2V8H17v12h-3.2l-5.8-7.4V20H5Z" fill="currentColor" />
-                        <path
-                            d="M20 8h3v9.2c0 1.7-.45 2.98-1.34 3.84-.88.84-2.17 1.26-3.86 1.26-.84 0-1.62-.11-2.36-.34v-2.56c.62.21 1.21.32 1.78.32 1.85 0 2.78-.92 2.78-2.76V8Z"
-                            fill="currentColor" />
-                    </svg></div>
-                <div><b>Nasos Tsivgoulis</b><span data-i18n="footer_sub">Portfolio concept ready for handoff and
-                        expansion</span></div>
-            </div><small data-i18n="footer_small">Built as a bilingual single-page web app with theme toggle,
-                public-source structure, and modular sections for future updates.</small>
-        </div>
-    </footer>
     <script>
-        const t = { 
-            en: 
-            { brand_sub: 'Prsofessional portfolio', 
-                nav_profile: 'Profile', 
-                nav_focus: 'Focus', 
-                nav_timeline: 'Timeline', 
-                nav_publications: 'Publications', 
-                nav_links: 'Links', 
-                hero_eyebrow: 'Public professional portfolio', 
-                hero_title: 'Rehabilitation medicine with a strong aesthetic restoration profile.', 
-                hero_lead: 'This portfolio presents the publicly visible profile of Dr. Athanasios “Nasos” Tsivgoulis across neurorehabilitation, aesthetic rehabilitation, \
-                injectables, and regenerative medicine, in both English and Greek.', 
-                hero_cta_primary: 'Explore profile', 
-                hero_cta_secondary: 'Open public profile', 
-                snapshot_kicker: 'Snapshot', 
-                snapshot_title: 'Physiatrist, rehabilitation specialist, and aesthetic practitioner', 
-                stat_1_title: 'PRM / Rehabilitation', stat_1_body: 'Neurological rehabilitation background', 
-                stat_2_title: 'AAAM', stat_2_body: 'Board certified public branding', 
-                stat_3_title: 'Injectables', stat_3_body: 'Trainer and speaker positioning', 
-                stat_4_title: 'Greece', stat_4_body: 'Clinical and academic affiliations', 
-                profile_title: 'Profile', 
-                profile_intro: 'Dr. Tsivgoulis is a physician working between physical medicine and rehabilitation, neurological rehabilitation, \
-                and aesthetic restoration.', profile_card1_title: 'Professional identity', profile_card1_body: 'Arehabilitation doctor and aesthetic restoration \
-                physician, with emphasis on combining functional improvement of the body or face with injectable approaches.', 
-                chip_aesthetic: 'Aesthetic restoration', 
-                chip_regenerative: 'Regenerative medicine', 
-                profile_card2_title: 'Clinical positioning', 
-                profile_card2_body: 'Public-facing material connects his practice to neurorehabilitation, spasticity-related work, facial and body function, and modern anti-aging protocols grounded in regenerative medicine.', 
-                chip_neuro: 'Neurorehabilitation', 
-                chip_injectables: 'Injectables', 
-                chip_antiaging: 'Anti-aging studies', 
-                focus_title: 'Focus areas', 
-                focus_intro: 'The portfolio below separates the main themes that appear repeatedly across public sources and event listings.', 
-                focus1_title: 'Neurological rehabilitation', focus1_body: 'His background is described as rooted in neurological medical rehabilitation, including protocols aimed at functional recovery and restoration.', 
-                focus2_title: 'Aesthetic rehabilitation', focus2_body: 'Public descriptions highlight a special interest in aesthetic rehabilitation, especially where appearance and function intersect in neurological patients.', 
-                focus3_title: 'Injectables and regenerative medicine', focus3_body: 'Multiple public profiles connect his work to injectables, anti-aging protocols, and regenerative medicine-based aesthetic restoration.', 
-                timeline_title: 'Affiliations and timeline', timeline_intro: 'These items are shown as dated public references, so the site treats them as timeline entries rather than assuming every role is current.', 
-                time1_title: 'ESO Stroke Summer School faculty listing', 
-                time1_body: 'Listed as a Physical Medicine and Rehabilitation Doctor and Research Associate at the Second Department of Neurology, Attikon University Hospital / National and Kapodistrian University of Athens, \
-                with affiliation also shown to Attica Rehabilitation Center in Magoula.', 
-                time2_title: 'Outpatient rehabilitation role', 
-                time2_body: 'Attica Rehabilitation Center publicly lists Athanasios Tsivgoulis as a Physical Medicine and Rehabilitation Specialist and Head of Outpatient Department.', 
-                time3_title: 'Centre Animus and University of Thessaly reference', 
-                time3_body: 'A 2022 event program lists Athanasios Tsivgoulis, MD, FEBPRM as Scientific Director of Rehabilitation at Centre Animus and University Fellow in the Neurology Department of the University of Thessaly.', 
-                pub_title: 'Selected public academic activity', 
-                pub_intro: 'A few publicly visible items help frame the academic and educational side of the profile.', 
-                pub1_title: 'Consensus work on spasticity management in multiple sclerosis', 
-                pub1_body: 'Public references connect him to a 2022 consensus document on management of spasticity in multiple sclerosis.', 
-                pub2_title: 'Instructor and trainer profile', 
-                pub2_body: 'His Instagram profile and other public-facing pages describe him as a PRM MD, neurology instructor, injector trainer, key opinion leader, and AAAM board certified physician.', 
-                pub3_title: 'Clinical studies and protocol branding', 
-                pub3_body: 'Public profile pages mention clinical studies in anti-aging and aesthetic restoration, and also reference a Guru FrameLift 3D facial reconstruction protocol signed by Dr. Nasos Tsivgoulis.', 
-                links_title: 'Public links', 
-                links_intro: 'The portfolio includes direct links to public pages that can be extended later with verified publications, media appearances, awards, or clinic details.', 
-                links_card1_title: 'Primary references', 
-                links_card1_body: 'These links are placed as external references rather than embedded claims, keeping the portfolio easy to update as the public footprint evolves.', 
-                note_title: 'Editorial note', 
-                note_body: 'This version intentionally distinguishes Athanasios Nasos Tsivgoulis from Georgios Tsivgoulis, because web results for the surname often surface a different neurologist.', 
-                footer_sub: 'Portfolio concept ready for handoff and expansion', 
-                footer_small: 'Built as a bilingual single-page web app with theme toggle, public-source structure, and modular sections for future updates.' }, 
-            el: { brand_sub: 'Επαγγελματικό portfolio', 
-                nav_profile: 'Προφίλ', 
-                nav_focus: 'Τομείς', 
-                nav_timeline: 'Πορεία', 
-                nav_publications: 'Δραστηριότητα', 
-                nav_links: 'Σύνδεσμοι', 
-                hero_eyebrow: 'Δημόσιο επαγγελματικό portfolio', 
-                hero_title: 'Ιατρική αποκατάσταση με έντονο προφίλ αισθητικής αποκατάστασης.', 
-                hero_lead: 'Το portfolio αυτό παρουσιάζει το δημόσια ορατό προφίλ του Δρ. Αθανάσιου “Νάσου” Τσιβγούλη στους τομείς της νευροαποκατάστασης, της αισθητικής αποκατάστασης,\
-                των injectables και της αναγεννητικής ιατρικής, στα αγγλικά και στα ελληνικά.', 
-                hero_cta_primary: 'Δες το προφίλ', 
-                hero_cta_secondary: 'Άνοιγμα δημόσιου προφίλ', 
-                snapshot_kicker: 'Σύνοψη', 
-                snapshot_title: 'Φυσίατρος, ιατρός αποκατάστασης και aesthetic practitioner', 
-                stat_1_title: 'PRM / Αποκατάσταση', 
-                stat_1_body: 'Υπόβαθρο στη νευρολογική αποκατάσταση', 
-                stat_2_title: 'AAAM', 
-                stat_2_body: 'Δημόσιο board certified branding', 
-                stat_3_title: 'Injectables', 
-                stat_3_body: 'Τοποθέτηση ως trainer και speaker', 
-                stat_4_title: 'Ελλάδα', 
-                stat_4_body: 'Κλινικές και ακαδημαϊκές συνδέσεις', 
-                profile_title: 'Προφίλ', 
-                profile_intro: 'Ο Τσιβγούλης είναι ιατρός που κινείται ανάμεσα στη φυσική ιατρική και αποκατάσταση, τη νευρολογική αποκατάσταση και την αισθητική αποκατάσταση.', 
-                profile_card1_title: 'Επαγγελματική ταυτότητα', 
-                profile_card1_body: 'Είναι ιατρός αποκατάστασης και αισθητικής αποκατάστασης, με έμφαση στον συνδυασμό λειτουργικής βελτίωσης σώματος ή προσώπου με injectable προσεγγίσεις.', 
-                chip_aesthetic: 'Αισθητική αποκατάσταση', 
-                chip_regenerative: 'Αναγεννητική ιατρική', 
-                profile_card2_title: 'Κλινική τοποθέτηση', 
-                profile_card2_body: 'Εξετάζει την πρακτική του με τη νευροαποκατάσταση, τη σπαστικότητα, τη λειτουργία προσώπου και σώματος και σύγχρονα anti-aging πρωτόκολλα που βασίζονται στην αναγεννητική ιατρική.', 
-                chip_neuro: 'Νευροαποκατάσταση', 
-                chip_injectables: 'Injectables', 
-                chip_antiaging: 'Anti-aging μελέτες', 
-                focus_title: 'Τομείς εστίασης', 
-                focus_intro: 'Παρακάτω οι βασικοί άξονες.', 
-                focus1_title: 'Νευρολογική αποκατάσταση', 
-                focus1_body: 'Υπόβαθρό βαθιά ριζωμένο στη νευρολογική ιατρική αποκατάσταση, με πρωτόκολλα λειτουργικής ανάρρωσης και αποκατάστασης.', 
-                focus2_title: 'Αισθητική αποκατάσταση', 
-                focus2_body: 'Ιδιαίτερο ενδιαφέρον για την αισθητική αποκατάσταση, ειδικά εκεί όπου τέμνονται εμφάνιση και λειτουργία σε νευρολογικούς ασθενείς.', 
-                focus3_title: 'Injectables και αναγεννητική ιατρική', 
-                focus3_body: 'Πολλά δημόσια προφίλ συνδέουν τη δουλειά του με injectables, anti-aging πρωτόκολλα και αισθητική αποκατάσταση βασισμένη στην αναγεννητική ιατρική.', 
-                timeline_title: 'Συνδέσεις και πορεία', 
-                timeline_intro: 'Τα στοιχεία αυτά εμφανίζονται ως χρονολογημένες δημόσιες αναφορές, οπότε το site τα χειρίζεται ως timeline και όχι ως βεβαιωμένους τρέχοντες ρόλους.', 
-                time1_title: 'Faculty listing του ESO Stroke Summer School', 
-                time1_body: 'Αναφέρεται ως Physical Medicine and Rehabilitation Doctor και Research Associate στο Second Department of Neurology του Attikon University Hospital / ΕΚΠΑ, με επιπλέον αναφορά στο Attica \
-                Rehabilitation Center στη Μαγούλα.', 
-                time2_title: 'Ρόλος σε εξωτερικά ιατρεία αποκατάστασης', 
-                time2_body: 'Το Attica Rehabilitation Center τον εμφανίζει δημόσια ως Physical Medicine and Rehabilitation Specialist και Head of Outpatient Department.', 
-                time3_title: 'Αναφορά σε Centre Animus και Πανεπιστήμιο Θεσσαλίας', 
-                time3_body: 'Πρόγραμμα εκδήλωσης του 2022 αναφέρει τον Athanasios Tsivgoulis, MD, FEBPRM ως Scientific Director of Rehabilitation στο Centre Animus και University Fellow στο Neurology Department του \
-                University of Thessaly.', 
-                pub_title: 'Επιλεγμένη δημόσια ακαδημαϊκή δραστηριότητα', 
-                pub_intro: 'Μερικά δημόσια ορατά στοιχεία βοηθούν να αποτυπωθεί και η ακαδημαϊκή ή εκπαιδευτική πλευρά του προφίλ.', 
-                pub1_title: 'Συμβολή σε consensus για τη διαχείριση της σπαστικότητας στη σκλήρυνση κατά πλάκας', 
-                pub1_body: 'Δημόσιες αναφορές τον συνδέουν με έγγραφο συναίνεσης του 2022 για τη διαχείριση της σπαστικότητας στη σκλήρυνση κατά πλάκας.', 
-                pub2_title: 'Προφίλ instructor και trainer', 
-                pub2_body: 'Το Instagram προφίλ του και άλλες δημόσιες σελίδες τον περιγράφουν ως PRM MD, neurology instructor, injector trainer, key opinion leader και AAAM board certified physician.', 
-                pub3_title: 'Κλινικές μελέτες και ονοματισμένα πρωτόκολλα', 
-                pub3_body: 'Δημόσιες σελίδες προφίλ αναφέρουν κλινικές μελέτες σε anti-aging και aesthetic restoration και επίσης αναφορά σε πρωτόκολλο Guru FrameLift 3D υπογεγραμμένο από τον Dr. Nasos Tsivgoulis.', 
-                links_title: 'Δημόσιοι σύνδεσμοι', 
-                links_intro: 'Το portfolio περιλαμβάνει άμεσους συνδέσμους προς δημόσιες σελίδες και μπορεί αργότερα να επεκταθεί με verified publications, media appearances, awards ή clinic details.', 
-                links_card1_title: 'Βασικές αναφορές', 
-                links_card1_body: 'Οι σύνδεσμοι μπαίνουν ως εξωτερικές αναφορές και όχι ως υπερφορτωμένοι ισχυρισμοί, ώστε το portfolio να ενημερώνεται εύκολα όσο εξελίσσεται το δημόσιο αποτύπωμα.', 
-                note_title: 'Σημείωση επιμέλειας', 
-                note_body: 'Η έκδοση αυτή ξεχωρίζει σκόπιμα τον Αθανάσιο Νάσο Τσιβγούλη από τον Georgios Tsivgoulis, επειδή τα web results για το επώνυμο εμφανίζουν συχνά διαφορετικό νευρολόγο.', 
-                footer_sub: 'Portfolio concept έτοιμο για handoff και επέκταση', 
-                footer_small: 'Χτίστηκε ως δίγλωσσο single-page web app με theme toggle, δομή βασισμένη σε δημόσιες πηγές και modular sections για μελλοντικές ενημερώσεις.' 
-            } 
+        const t = {
+            en: {
+                brand_sub: 'Professional portfolio',
+                nav_profile: 'Profile',
+                nav_focus: 'Focus Areas',
+                nav_publications: 'Selected public academic activity',
+                nav_contact: 'Contact',
+                hero_eyebrow: 'Professional portfolio',
+                hero_title: 'Rehabilitation medicine with a focused public profile in aesthetics and neurorehabilitation.',
+                hero_lead: 'A cleaner presentation of the publicly visible profile of Dr. Athanasios “Nasos” Tsivgoulis, designed to highlight core medical identity,\
+         focus areas, academic activity, and contact details in English and Greek.',
+                hero_cta_primary: 'Explore profile',
+                hero_cta_secondary: 'Go to contact',
+                snapshot_kicker: 'Snapshot',
+                snapshot_title: 'Targeted public highlights',
+                stat_1_title: 'PRM physician',
+                stat_1_body: 'Publicly presented in rehabilitation medicine',
+                stat_2_title: 'Attica Rehab',
+                stat_2_body: 'Head of Outpatient Department listing',
+                stat_3_title: 'Academic link',
+                stat_3_body: 'Research associate and neurology-linked profile',
+                stat_4_title: 'Aesthetic profile',
+                stat_4_body: 'Injectables, restoration, and AAAM branding',
+                profile_title: 'Profile',
+                profile_intro: 'Dr. Tsivgoulis combines a background in physical medicine and rehabilitation with a distinct clinical orientation towards aesthetic restoration and regenerative medicine.',
+                profile_card1_title: 'Professional identity',
+                profile_card1_body: 'Rehabilitation Doctor and Aesthetic Restoration Physician with AAAM Board Certification. His practice bridges neurological rehabilitation medicine with\
+         injectable therapies and regenerative-oriented aesthetic restoration.',
+                chip_aesthetic: 'Aesthetic restoration',
+                chip_regenerative: 'Regenerative medicine',
+                profile_card2_title: 'Clinical and academic roles',
+                profile_card2_body: 'Head of Outpatient Department at Attica Rehabilitation Center, Research Associate at the Second Department of Neurology of Attikon \
+        University Hospital / NKUA, and active as an instructor and trainer in injectables and aesthetic medicine.',
+                chip_neuro: 'Neurorehabilitation',
+                chip_injectables: 'Injectables',
+                chip_training: 'Training and teaching',
+                focus_title: 'Focus Areas',
+                focus_intro: 'Three core areas define his clinical and educational work.',
+                focus1_title: 'Physical medicine and rehabilitation',
+                focus1_body: 'Specialist in Physical Medicine and Rehabilitation with a clinical focus on neurological rehabilitation, spasticity management, and functional recovery protocols.',
+                focus2_title: 'Aesthetic rehabilitation',
+                focus2_body: 'Special interest in the aesthetic rehabilitation of neurological patients, combining functional restoration with injectable and regenerative approaches to facial and body appearance.',
+                focus3_title: 'Injectables and regenerative practice',
+                focus3_body: 'Trainer and key opinion leader for injectable products including Botox, Dysport, Pluryal, and Jalupro. International trainer and speaker for\
+         Burgeon x Vivacy, with clinical activity across anti-aging and regenerative aesthetic protocols.',
+                pub_title: 'Selected public academic activity',
+                pub_intro: 'A structured overview of his academic affiliations, completed credentials, and broader professional and educational activity.',
+                pub1_title: 'Academic and institutional affiliations',
+                pub1_body: 'Research Associate, Second Department of Neurology, Attikon University Hospital / National and Kapodistrian University of Athens. Previous role as Scientific Director of \
+         Rehabilitation at Centre Animus, with a concurrent University Fellowship at the Neurology Department, University of Thessaly.',
+                pub2_title: 'Degrees and certifications',
+                pub2_body: 'MD, FEBPRM (Fellow of the European Board of Physical and Rehabilitation Medicine). AAAM Board Certified in anti-aging and aesthetic medicine.',
+                pub3_title: 'Teaching, speaking and editorial work',
+                pub3_body: 'Instructor and trainer in injectable and aesthetic medicine. Speaker at international congresses. Co-author of a 2022 consensus document on spasticity management in multiple sclerosis.\
+         Creator of the Guru FrameLift 3D facial reconstruction protocol.',
+                contact_title: 'Contact',
+                contact_intro: 'Get in touch or visit the clinic.',
+                contact_box_title: 'Direct details',
+                contact_phone_label: 'Phone',
+                contact_address_label: 'Address',
+                contact_links_title: 'Public profiles',
+                contact_links_body: 'Additional professional profiles are available at the links below.'
+            },
+            el: {
+                brand_sub: 'Επαγγελματικό portfolio',
+                nav_profile: 'Προφίλ',
+                nav_focus: 'Focus Areas',
+                nav_publications: 'Selected public academic activity',
+                nav_contact: 'Contact',
+                hero_eyebrow: 'Επαγγελματικό portfolio',
+                hero_title: 'Ιατρική αποκατάσταση με πιο στοχευμένο δημόσιο προφίλ στην αισθητική και τη νευροαποκατάσταση.',
+                hero_lead: 'Μια πιο καθαρή παρουσίαση του δημόσια ορατού προφίλ του Δρ. Αθανάσιου “Νάσου” Τσιβγούλη, με έμφαση στη βασική ιατρική ταυτότητα, τους τομείς εστίασης, την ακαδημαϊκή δραστηριότητα και τα \
+         στοιχεία επικοινωνίας στα αγγλικά και στα ελληνικά.',
+                hero_cta_primary: 'Δες το προφίλ',
+                hero_cta_secondary: 'Μετάβαση στο contact',
+                snapshot_kicker: 'Snapshot',
+                snapshot_title: 'Στοχευμένα δημόσια highlights',
+                stat_1_title: 'Ιατρός PRM',
+                stat_1_body: 'Δημόσια παρουσία στην ιατρική αποκατάστασης',
+                stat_2_title: 'Attica Rehab',
+                stat_2_body: 'Listing ως Head of Outpatient Department',
+                stat_3_title: 'Academic link',
+                stat_3_body: 'Research associate και neurology-linked προφίλ',
+                stat_4_title: 'Aesthetic profile',
+                stat_4_body: 'Injectables, restoration και AAAM branding',
+                profile_title: 'Profile',
+                profile_intro: 'Ο Dr. Tsivgoulis συνδυάζει υπόβαθρο στη φυσική ιατρική και αποκατάσταση με σαφή κλινικό προσανατολισμό προς την αισθητική αποκατάσταση και την αναγεννητική ιατρική.',
+                profile_card1_title: 'Επαγγελματική ταυτότητα',
+                profile_card1_body: 'Ιατρός Αποκατάστασης και Αισθητικής Αποκατάστασης με AAAM Board Certification. Η κλινική του πρακτική γεφυρώνει τη νευρολογική ιατρική αποκατάσταση με\
+         injectable θεραπείες και αναγεννητικά προσανατολισμένη αισθητική αποκατάσταση.',
+                chip_aesthetic: 'Αισθητική αποκατάσταση',
+                chip_regenerative: 'Αναγεννητική ιατρική',
+                profile_card2_title: 'Δημόσια καταγεγραμμένοι ρόλοι',
+                profile_card2_body: 'Head of Outpatient Department στο Attica Rehabilitation Center, Research Associate στο Second Department of Neurology του Attikon University Hospital / ΕΚΠΑ, και \
+         ενεργός ως instructor και trainer σε injectables και αισθητική ιατρική.',
+                chip_neuro: 'Νευροαποκατάσταση',
+                chip_injectables: 'Injectables',
+                chip_training: 'Training και teaching',
+                focus_title: 'Focus Areas',
+                focus_intro: 'Τρεις βασικοί άξονες ορίζουν την κλινική και εκπαιδευτική του δραστηριότητα.',
+                focus1_title: 'Φυσική ιατρική και αποκατάσταση',
+                focus1_body: 'Ειδικός Φυσικής Ιατρικής και Αποκατάστασης με κλινική εστίαση στη νευρολογική αποκατάσταση, τη διαχείριση σπαστικότητας και τα πρωτόκολλα λειτουργικής ανάρρωσης.',
+                focus2_title: 'Αισθητική αποκατάσταση',
+                focus2_body: 'Ιδιαίτερο κλινικό ενδιαφέρον στην αισθητική αποκατάσταση νευρολογικών ασθενών, με συνδυασμό λειτουργικής αποκατάστασης και injectable/αναγεννητικών προσεγγίσεων για το πρόσωπο και το σώμα.',
+                focus3_title: 'Injectables και αναγεννητική πρακτική',
+                focus3_body: 'Trainer και key opinion leader για injectable προϊόντα, συμπεριλαμβανομένων Botox, Dysport, Pluryal και Jalupro. Διεθνής trainer και speaker για Burgeon x Vivacy, με κλινική δραστηριότητα\
+          σε anti-aging και αναγεννητικά αισθητικά πρωτόκολλα.',
+                pub_title: 'Selected public academic activity',
+                pub_intro: 'Μια δομημένη επισκόπηση των ακαδημαϊκών συνδέσεών του, των ολοκληρωμένων credentials και της ευρύτερης επαγγελματικής και εκπαιδευτικής δραστηριότητάς του.',
+                pub1_title: 'Ακαδημαϊκές και θεσμικές συνδέσεις',
+                pub1_body: 'Research Associate, Second Department of Neurology, Attikon University Hospital / ΕΚΠΑ. Προηγούμενος ρόλος ως Scientific Director of Rehabilitation στο Centre Animus, με παράλληλη\
+           University Fellowship στο Neurology Department, University of Thessaly.',
+                pub2_title: 'Ολοκληρωμένη εκπαίδευση και επαγγελμαικά credentials',
+                pub2_body: 'MD, FEBPRM (Fellow of the European Board of Physical and Rehabilitation Medicine). AAAM Board Certified στην anti-aging και αισθητική ιατρική.',
+                pub3_title: 'Extra επαγγελματική και εκπαιδευτική δραστηριότητα',
+                pub3_body: 'Instructor και trainer σε injectable και αισθητική ιατρική. Speaker σε διεθνή συνέδρια. Συν-συγγραφέας εγγράφου συναίνεσης του 2022 για τη διαχείριση σπαστικότητας στη σκλήρυνση κατά πλάκας.\
+         Δημιουργός του πρωτοκόλλου Guru FrameLift 3D για αναδόμηση προσώπου.',
+                contact_title: 'Contact',
+                contact_intro: 'Επικοινωνήστε μαζί μας ή επισκεφθείτε το ιατρείο.',
+                contact_box_title: 'Άμεσα στοιχεία',
+                contact_phone_label: 'Τηλέφωνο',
+                contact_address_label: 'Διεύθυνση',
+                contact_links_title: 'Public profiles',
+                contact_links_body: 'Πρόσθετα επαγγελματικά προφίλ είναι διαθέσιμα στους παρακάτω συνδέσμους.'
+            }
         };
-        const nodes = document.querySelectorAll('[data-i18n]'); const langBtns = document.querySelectorAll('[data-lang]'); function setLang(lang) { document.documentElement.lang = lang === 'el' ? 'el' : 'en'; nodes.forEach(n => { const k = n.dataset.i18n; if (t[lang][k]) n.textContent = t[lang][k] }); langBtns.forEach(b => { const on = b.dataset.lang === lang; b.classList.toggle('active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false') }) } langBtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang))); setLang('en'); const root = document.documentElement, toggle = document.querySelector('[data-theme-toggle]'); let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; root.setAttribute('data-theme', theme); toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme) });
+        const nodes = document.querySelectorAll('[data-i18n]');
+        const langBtns = document.querySelectorAll('[data-lang]');
+        function setLang(lang) {
+            document.documentElement.lang = lang === 'el' ? 'el' : 'en';
+            nodes.forEach(n => {
+                const k = n.dataset.i18n;
+                if (t[lang][k]) n.textContent = t[lang][k]
+            });
+            langBtns.forEach(b => {
+                const on = b.dataset.lang === lang;
+                b.classList.toggle('active', on);
+                b.setAttribute('aria-pressed', on ? 'true' : 'false')
+            })
+        }
+        langBtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+        setLang('en');
+        const root = document.documentElement, toggle = document.querySelector('[data-theme-toggle]');
+        let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        root.setAttribute('data-theme', theme);
+        toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme) });
     </script>
 </body>
 

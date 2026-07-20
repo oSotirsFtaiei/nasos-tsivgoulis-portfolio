@@ -68,7 +68,7 @@ h1, h2, h3, h4 {
    Cormorant was drawn with proper Greek letterforms, keeping the same elegant,
    high-contrast character in both languages. */
 html[lang="el"] {
-  --font-head: "Cormorant", "Playfair Display", Georgia, serif;
+  --font-head: "Playfair Display", Georgia, serif;
 }
 html[lang="el"] h1,
 html[lang="el"] h2,

@@ -1,749 +1,713 @@
-<!doctype html>
-<html lang="en" data-theme="light">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Nasos Tsivgoulis Portfolio</title>
-    <meta name="description" content="Bilingual portfolio for Dr. Athanasios Nasos Tsivgoulis.">
-    <link rel="preconnect" href="https://api.fontshare.com">
-    <!--<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=zodiak@400,700&display=swap" rel="stylesheet">-->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root,
-        [data-theme=light] {
-            --bg: #f7f6f2;
-            --surface: #fcfbf8;
-            --surface2: #efebe4;
-            --text: #27241d;
-            --muted: #70695f;
-            --primary: #0b6c71;
-            --primary2: #d8eceb;
-            --border: rgba(39, 36, 29, .12);
-            --shadow: 0 12px 30px rgba(0, 0, 0, .08);
-            --r: 20px;
-            --max: 1120px;
-            --font-body: 'Satoshi', sans-serif;
-            --font-display: 'Zodiak', serif
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.title">Dr. Nasos Tsivgoulis — Neurorehabilitation · Aesthetic Rehabilitation · Regenerative Medicine</title>
+  <meta name="description" content="Dr. Nasos Tsivgoulis — physician specialized in Neurological Rehabilitation Medicine. Advanced neurorehabilitation, aesthetic rehabilitation and regenerative medicine in Athens, Greece." />
 
-        [data-theme=dark] {
-            --bg: #151311;
-            --surface: #1d1a18;
-            --surface2: #27231f;
-            --text: #ece7de;
-            --muted: #b5ac9f;
-            --primary: #69aab0;
-            --primary2: rgba(105, 170, 176, .15);
-            --border: rgba(236, 231, 222, .12);
-            --shadow: 0 12px 30px rgba(0, 0, 0, .32)
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-        * {
-            box-sizing: border-box
-        }
-
-        html {
-            scroll-behavior: smooth
-        }
-
-        body {
-            margin: 0;
-            font: 16px/1.65 var(--font-body);
-            color: var(--text);
-            background: radial-gradient(circle at top right, rgba(11, 108, 113, .09), transparent 25%), var(--bg)
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none
-        }
-
-        img,
-        svg {
-            display: block;
-            max-width: 100%
-        }
-
-        button {
-            font: inherit
-        }
-
-        .container {
-            width: min(calc(100% - 24px), var(--max));
-            margin: auto
-        }
-
-        .skip {
-            position: absolute;
-            left: 12px;
-            top: -48px;
-            background: var(--primary);
-            color: #fff;
-            padding: 10px 14px;
-            border-radius: 12px
-        }
-
-        .skip:focus {
-            top: 12px
-        }
-
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            background: color-mix(in srgb, var(--bg) 86%, transparent);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(0, 0, 0, .06)
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            align-items: center;
-            padding: 16px 0
-        }
-
-        .brand {
-            display: flex;
-            gap: 12px;
-            align-items: center
-        }
-
-        .logo {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            background: linear-gradient(135deg, var(--primary2), var(--surface2));
-            border: 1px solid var(--border);
-            color: var(--primary)
-        }
-
-        .brand b {
-            display: block;
-            font-size: 15px
-        }
-
-        .brand span {
-            display: block;
-            font-size: 13px;
-            color: var(--muted)
-        }
-
-        .navlinks {
-            display: none;
-            gap: 18px
-        }
-
-        .navlinks a {
-            font-size: 14px;
-            color: var(--muted)
-        }
-
-        .controls {
-            display: flex;
-            gap: 8px;
-            align-items: center
-        }
-
-        .switch {
-            display: flex;
-            padding: 4px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 999px
-        }
-
-        .switch button,
-        .icon {
-            min-height: 44px;
-            border: none;
-            background: transparent;
-            color: var(--muted);
-            border-radius: 999px;
-            padding: 0 14px
-        }
-
-        .switch .active {
-            background: var(--primary);
-            color: #fff
-        }
-
-        .icon {
-            width: 44px;
-            border: 1px solid var(--border);
-            background: var(--surface)
-        }
-
-        .hero {
-            padding: 72px 0 48px
-        }
-
-        .hero-grid {
-            display: grid;
-            gap: 28px;
-            align-items: end
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: var(--primary2);
-            color: var(--primary);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: .08em;
-            text-transform: uppercase
-        }
-
-        .hero h1 {
-            margin: 16px 0;
-            font: 700 clamp(34px, 6vw, 60px)/1.02 var(--font-display);
-            max-width: 11ch
-        }
-
-        .lead {
-            max-width: 62ch;
-            color: var(--muted)
-        }
-
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 24px
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 46px;
-            padding: 0 16px;
-            border-radius: 999px;
-            border: 1px solid var(--border);
-            background: var(--surface);
-            font-size: 14px
-        }
-
-        .btn.primary {
-            background: var(--primary);
-            border-color: transparent;
-            color: #fff
-        }
-
-        .panel,
-        .card,
-        .pub,
-        .contactbox {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--r)
-        }
-
-        .panel {
-            padding: 24px;
-            box-shadow: var(--shadow);
-            background: linear-gradient(180deg, var(--surface), var(--surface2))
-        }
-
-        .panel h2 {
-            margin: 8px 0 0;
-            font: 700 clamp(24px, 4vw, 36px)/1.08 var(--font-display)
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 20px
-        }
-
-        .stat {
-            padding: 16px;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, .18)
-        }
-
-        .stat b {
-            display: block;
-            font-size: 18px
-        }
-
-        .stat span {
-            display: block;
-            font-size: 14px;
-            color: var(--muted)
-        }
-
-        section.block {
-            padding: 44px 0;
-            border-top: 1px solid rgba(0, 0, 0, .06)
-        }
-
-        .head {
-            margin-bottom: 24px
-        }
-
-        .head h2 {
-            margin: 0 0 8px;
-            font: 700 clamp(26px, 4vw, 38px)/1.1 var(--font-display)
-        }
-
-        .head p {
-            margin: 0;
-            color: var(--muted);
-            max-width: 62ch
-        }
-
-        .g2,
-        .g3,
-        .pubs {
-            display: grid;
-            gap: 16px
-        }
-
-        .card,
-        .pub,
-        .contactbox {
-            padding: 22px
-        }
-
-        .card h3,
-        .pub h3,
-        .contactbox h3 {
-            margin: 0 0 8px;
-            font-size: 22px;
-            line-height: 1.2
-        }
-
-        .card p,
-        .pub p,
-        .contactbox p {
-            margin: 0;
-            color: var(--muted)
-        }
-
-        .chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 14px
-        }
-
-        .chip {
-            display: inline-flex;
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: var(--primary2);
-            color: var(--primary);
-            font-size: 12px;
-            font-weight: 700
-        }
-
-        .contactlist {
-            display: grid;
-            gap: 12px;
-            margin-top: 16px
-        }
-
-        .contactitem {
-            padding: 14px 16px;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, .16)
-        }
-
-        .contactitem b {
-            display: block;
-            font-size: 13px;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-            color: var(--muted)
-        }
-
-        .footer {
-            padding: 40px 0 56px;
-            border-top: 1px solid rgba(0, 0, 0, .06)
-        }
-
-        .footer small {
-            display: block;
-            color: var(--muted);
-            margin-top: 10px
-        }
-
-        .fade {
-            opacity: 1
-        }
-
-        @supports(animation-timeline:view()) {
-            .fade {
-                opacity: 0;
-                animation: reveal linear both;
-                animation-timeline: view();
-                animation-range: entry 0% entry 35%
-            }
-
-            @keyframes reveal {
-                to {
-                    opacity: 1
-                }
-            }
-        }
-
-        @media (min-width:800px) {
-            .navlinks {
-                display: flex
-            }
-
-            .hero-grid {
-                grid-template-columns: 1.15fr .85fr
-            }
-
-            .g2 {
-                grid-template-columns: repeat(2, 1fr)
-            }
-
-            .g3 {
-                grid-template-columns: repeat(3, 1fr)
-            }
-        }
-
-        @media (prefers-reduced-motion:reduce) {
-
-            *,
-            *:before,
-            *:after {
-                animation: none !important;
-                transition: none !important;
-                scroll-behavior: auto !important
-            }
-        }
-    </style>
+  <link rel="icon" type="image/png" href="logos/Logo2.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <a class="skip" href="#main">Skip to content</a>
-    <header class="header">
-        <div class="container nav">
-            <div class="brand">
-                <div class="logo"><img src="Icons/logo.png" alt="logo" style="width: 44px;height: 44px;border-radius: 14px;"></div>
-                <div><b>Nasos Tsivgoulis</b><span data-i18n="brand_sub">Bilingual professional portfolio</span></div>
-            </div>
-            <nav class="navlinks"><a href="#profile" data-i18n="nav_profile">Profile</a><a href="#focus"
-                    data-i18n="nav_focus">Focus Areas</a><a href="#publications" data-i18n="nav_publications">Selected
-                    public academic activity</a><a href="#contact" data-i18n="nav_contact">Contact</a></nav>
-            <div class="controls">
-                <div class="switch"><button class="active" data-lang="en" aria-pressed="true">EN</button><button
-                        data-lang="el" aria-pressed="false">EL</button></div><button class="icon" data-theme-toggle
-                    aria-label="Switch theme">◐</button>
-            </div>
-        </div>
-    </header>
-    <main id="main">
-        <section class="hero">
-            <div class="container hero-grid">
-                <div>
-                    <div class="eyebrow fade" data-i18n="hero_eyebrow">Public professional portfolio</div>
-                    <h1 class="fade" data-i18n="hero_title">Rehabilitation medicine with a focused public profile in
-                        aesthetics and neurorehabilitation.</h1>
-                    <p class="lead fade" data-i18n="hero_lead">A cleaner presentation of the publicly visible profile of
-                        Dr. Athanasios “Nasos” Tsivgoulis, designed to highlight core medical identity, focus areas,
-                        academic activity, and contact details in English and Greek.</p>
-                    <div class="actions fade"><a class="btn primary" href="#profile"
-                            data-i18n="hero_cta_primary">Explore profile</a><a class="btn" href="#contact"
-                            data-i18n="hero_cta_secondary">Go to contact</a></div>
-                </div>
-                <aside class="panel fade">
-                    <div class="eyebrow" data-i18n="snapshot_kicker">Snapshot</div>
-                    <h2 data-i18n="snapshot_title">Targeted public highlights</h2>
-                    <div class="stats">
-                        <div class="stat"><b data-i18n="stat_1_title">PRM physician</b><span
-                                data-i18n="stat_1_body">Publicly presented in rehabilitation medicine</span></div>
-                        <div class="stat"><b data-i18n="stat_2_title">Attica Rehab</b><span data-i18n="stat_2_body">Head
-                                of Outpatient Department listing</span></div>
-                        <div class="stat"><b data-i18n="stat_3_title">Academic link</b><span
-                                data-i18n="stat_3_body">Research associate and neurology-linked profile</span></div>
-                        <div class="stat"><b data-i18n="stat_4_title">Aesthetic profile</b><span
-                                data-i18n="stat_4_body">Injectables, restoration, and AAAM branding</span></div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-        <section class="block" id="profile">
-            <div class="container">
-                <div class="head fade">
-                    <h2 data-i18n="profile_title">Profile</h2>
-                    <p data-i18n="profile_intro">Dr. Tsivgoulis combines a background in physical medicine and
-                        rehabilitation with a distinct clinical orientation towards aesthetic restoration and
-                        regenerative medicine.</p>
-                </div>
-                <div class="g2">
-                    <article class="card fade">
-                        <h3 data-i18n="profile_card1_title">Professional identity</h3>
-                        <p data-i18n="profile_card1_body">Rehabilitation Doctor and Aesthetic Restoration Physician with
-                            AAAM Board Certification. His practice bridges neurological rehabilitation medicine with
-                            injectable therapies and regenerative-oriented aesthetic restoration.</p>
-                        <div class="chips"><span class="chip">PRM</span><span class="chip"
-                                data-i18n="chip_aesthetic">Aesthetic restoration</span><span class="chip"
-                                data-i18n="chip_regenerative">Regenerative medicine</span></div>
-                    </article>
-                    <article class="card fade">
-                        <h3 data-i18n="profile_card2_title">Clinical and academic roles</h3>
-                        <p data-i18n="profile_card2_body">Head of Outpatient Department at Attica Rehabilitation Center,
-                            Research Associate at the Second Department of Neurology of Attikon University Hospital /
-                            NKUA, and active as an instructor and trainer in injectables and aesthetic medicine.</p>
-                        <div class="chips"><span class="chip" data-i18n="chip_neuro">Neurorehabilitation</span><span
-                                class="chip" data-i18n="chip_injectables">Injectables</span><span class="chip"
-                                data-i18n="chip_training">Training and teaching</span></div>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="block" id="focus">
-            <div class="container">
-                <div class="head fade">
-                    <h2 data-i18n="focus_title">Focus Areas</h2>
-                    <p data-i18n="focus_intro">Three core areas define his clinical and educational work.</p>
-                </div>
-                <div class="g3">
-                    <article class="card fade">
-                        <h3 data-i18n="focus1_title">Physical medicine and rehabilitation</h3>
-                        <p data-i18n="focus1_body">Specialist in Physical Medicine and Rehabilitation with a clinical
-                            focus on neurological rehabilitation, spasticity management, and functional recovery
-                            protocols.</p>
-                    </article>
-                    <article class="card fade">
-                        <h3 data-i18n="focus2_title">Aesthetic rehabilitation</h3>
-                        <p data-i18n="focus2_body">Special interest in the aesthetic rehabilitation of neurological
-                            patients, combining functional restoration with injectable and regenerative approaches to
-                            facial and body appearance.</p>
-                    </article>
-                    <article class="card fade">
-                        <h3 data-i18n="focus3_title">Injectables and regenerative practice</h3>
-                        <p data-i18n="focus3_body">Trainer and key opinion leader for injectable products including
-                            Botox, Dysport, Pluryal, and Jalupro. International trainer and speaker for Burgeon x
-                            Vivacy, with clinical activity across anti-aging and regenerative aesthetic protocols.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="block" id="publications">
-            <div class="container">
-                <div class="head fade">
-                    <h2 data-i18n="pub_title">Selected public academic activity</h2>
-                    <p data-i18n="pub_intro">A structured overview of his academic affiliations, completed credentials,
-                        and broader professional and educational activity.</p>
-                </div>
-                <div class="pubs">
-                    <article class="pub fade">
-                        <h3 data-i18n="pub1_title">Academic and institutional affiliations</h3>
-                        <p data-i18n="pub1_body">Research Associate, Second Department of Neurology, Attikon University
-                            Hospital / National and Kapodistrian University of Athens. Previous role as Scientific
-                            Director of Rehabilitation at Centre Animus, with a concurrent University Fellowship at the
-                            Neurology Department, University of Thessaly.</p>
-                    </article>
-                    <article class="pub fade">
-                        <h3 data-i18n="pub2_title">Degrees and certifications</h3>
-                        <p data-i18n="pub2_body">MD, FEBPRM (Fellow of the European Board of Physical and Rehabilitation
-                            Medicine). AAAM Board Certified in anti-aging and aesthetic medicine.</p>
-                    </article>
-                    <article class="pub fade">
-                        <h3 data-i18n="pub3_title">Teaching, speaking and editorial work</h3>
-                        <p data-i18n="pub3_body">Instructor and trainer in injectable and aesthetic medicine. Speaker at
-                            international congresses. Co-author of a 2022 consensus document on spasticity management in
-                            multiple sclerosis. Creator of the Guru FrameLift 3D facial reconstruction protocol.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-        <section class="block" id="contact">
-            <div class="container">
-                <div class="head fade">
-                    <h2 data-i18n="contact_title">Contact</h2>
-                    <p data-i18n="contact_intro">Get in touch or visit the clinic.</p>
-                </div>
-                <div class="g2">
-                    <article class="contactbox fade">
-                        <h3 data-i18n="contact_box_title">Direct details</h3>
-                        <div class="contactlist">
-                            <div class="contactitem"><b data-i18n="contact_phone_label">Phone</b><span>Tel: 210 4567
-                                    890</span></div>
-                            <div class="contactitem"><b data-i18n="contact_address_label">Address</b><span>Defkaliwn 13,
-                                    Athens, 15125</span></div>
-                        </div>
-                    </article>
-                    <article class="contactbox fade">
-                        <h3 data-i18n="contact_links_title">Public profiles</h3>
-                        <div class="chips" style="margin-top:0;margin-bottom:16px"><a class="btn"
-                                href="https://guruderma.com/en/nasos-tsivgoulis/" target="_blank"
-                                rel="noopener noreferrer">Guru Derma</a><a class="btn"
-                                href="https://www.atticarehab.gr/en/meet-the-team/" target="_blank"
-                                rel="noopener noreferrer">Attica Rehab</a><a class="btn"
-                                href="https://www.instagram.com/drnasos/?hl=en" target="_blank"
-                                rel="noopener noreferrer">Instagram</a></div>
-                        <p data-i18n="contact_links_body">Additional professional profiles are available at the links
-                            below.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-    </main>
-    <script>
-        const t = {
-            en: {
-                brand_sub: 'Professional portfolio',
-                nav_profile: 'Profile',
-                nav_focus: 'Focus Areas',
-                nav_publications: 'Selected public academic activity',
-                nav_contact: 'Contact',
-                hero_eyebrow: 'Professional portfolio',
-                hero_title: 'Rehabilitation medicine with a focused public profile in aesthetics and neurorehabilitation.',
-                hero_lead: 'A cleaner presentation of the publicly visible profile of Dr. Athanasios “Nasos” Tsivgoulis, designed to highlight core medical identity,\
-         focus areas, academic activity, and contact details in English and Greek.',
-                hero_cta_primary: 'Explore profile',
-                hero_cta_secondary: 'Go to contact',
-                snapshot_kicker: 'Snapshot',
-                snapshot_title: 'Targeted public highlights',
-                stat_1_title: 'PRM physician',
-                stat_1_body: 'Publicly presented in rehabilitation medicine',
-                stat_2_title: 'Attica Rehab',
-                stat_2_body: 'Head of Outpatient Department listing',
-                stat_3_title: 'Academic link',
-                stat_3_body: 'Research associate and neurology-linked profile',
-                stat_4_title: 'Aesthetic profile',
-                stat_4_body: 'Injectables, restoration, and AAAM branding',
-                profile_title: 'Profile',
-                profile_intro: 'Dr. Tsivgoulis combines a background in physical medicine and rehabilitation with a distinct clinical orientation towards aesthetic restoration and regenerative medicine.',
-                profile_card1_title: 'Professional identity',
-                profile_card1_body: 'Rehabilitation Doctor and Aesthetic Restoration Physician with AAAM Board Certification. His practice bridges neurological rehabilitation medicine with\
-         injectable therapies and regenerative-oriented aesthetic restoration.',
-                chip_aesthetic: 'Aesthetic restoration',
-                chip_regenerative: 'Regenerative medicine',
-                profile_card2_title: 'Clinical and academic roles',
-                profile_card2_body: 'Head of Outpatient Department at Attica Rehabilitation Center, Research Associate at the Second Department of Neurology of Attikon \
-        University Hospital / NKUA, and active as an instructor and trainer in injectables and aesthetic medicine.',
-                chip_neuro: 'Neurorehabilitation',
-                chip_injectables: 'Injectables',
-                chip_training: 'Training and teaching',
-                focus_title: 'Focus Areas',
-                focus_intro: 'Three core areas define his clinical and educational work.',
-                focus1_title: 'Physical medicine and rehabilitation',
-                focus1_body: 'Specialist in Physical Medicine and Rehabilitation with a clinical focus on neurological rehabilitation, spasticity management, and functional recovery protocols.',
-                focus2_title: 'Aesthetic rehabilitation',
-                focus2_body: 'Special interest in the aesthetic rehabilitation of neurological patients, combining functional restoration with injectable and regenerative approaches to facial and body appearance.',
-                focus3_title: 'Injectables and regenerative practice',
-                focus3_body: 'Trainer and key opinion leader for injectable products including Botox, Dysport, Pluryal, and Jalupro. International trainer and speaker for\
-         Burgeon x Vivacy, with clinical activity across anti-aging and regenerative aesthetic protocols.',
-                pub_title: 'Selected public academic activity',
-                pub_intro: 'A structured overview of his academic affiliations, completed credentials, and broader professional and educational activity.',
-                pub1_title: 'Academic and institutional affiliations',
-                pub1_body: 'Research Associate, Second Department of Neurology, Attikon University Hospital / National and Kapodistrian University of Athens. Previous role as Scientific Director of \
-         Rehabilitation at Centre Animus, with a concurrent University Fellowship at the Neurology Department, University of Thessaly.',
-                pub2_title: 'Degrees and certifications',
-                pub2_body: 'MD, FEBPRM (Fellow of the European Board of Physical and Rehabilitation Medicine). AAAM Board Certified in anti-aging and aesthetic medicine.',
-                pub3_title: 'Teaching, speaking and editorial work',
-                pub3_body: 'Instructor and trainer in injectable and aesthetic medicine. Speaker at international congresses. Co-author of a 2022 consensus document on spasticity management in multiple sclerosis.\
-         Creator of the Guru FrameLift 3D facial reconstruction protocol.',
-                contact_title: 'Contact',
-                contact_intro: 'Get in touch or visit the clinic.',
-                contact_box_title: 'Direct details',
-                contact_phone_label: 'Phone',
-                contact_address_label: 'Address',
-                contact_links_title: 'Public profiles',
-                contact_links_body: 'Additional professional profiles are available at the links below.'
-            },
-            el: {
-                brand_sub: 'Επαγγελματικό portfolio',
-                nav_profile: 'Προφίλ',
-                nav_focus: 'Focus Areas',
-                nav_publications: 'Selected public academic activity',
-                nav_contact: 'Contact',
-                hero_eyebrow: 'Επαγγελματικό portfolio',
-                hero_title: 'Ιατρική αποκατάσταση με πιο στοχευμένο δημόσιο προφίλ στην αισθητική και τη νευροαποκατάσταση.',
-                hero_lead: 'Μια πιο καθαρή παρουσίαση του δημόσια ορατού προφίλ του Δρ. Αθανάσιου “Νάσου” Τσιβγούλη, με έμφαση στη βασική ιατρική ταυτότητα, τους τομείς εστίασης, την ακαδημαϊκή δραστηριότητα και τα \
-         στοιχεία επικοινωνίας στα αγγλικά και στα ελληνικά.',
-                hero_cta_primary: 'Δες το προφίλ',
-                hero_cta_secondary: 'Μετάβαση στο contact',
-                snapshot_kicker: 'Snapshot',
-                snapshot_title: 'Στοχευμένα δημόσια highlights',
-                stat_1_title: 'Ιατρός PRM',
-                stat_1_body: 'Δημόσια παρουσία στην ιατρική αποκατάστασης',
-                stat_2_title: 'Attica Rehab',
-                stat_2_body: 'Listing ως Head of Outpatient Department',
-                stat_3_title: 'Academic link',
-                stat_3_body: 'Research associate και neurology-linked προφίλ',
-                stat_4_title: 'Aesthetic profile',
-                stat_4_body: 'Injectables, restoration και AAAM branding',
-                profile_title: 'Profile',
-                profile_intro: 'Ο Dr. Tsivgoulis συνδυάζει υπόβαθρο στη φυσική ιατρική και αποκατάσταση με σαφή κλινικό προσανατολισμό προς την αισθητική αποκατάσταση και την αναγεννητική ιατρική.',
-                profile_card1_title: 'Επαγγελματική ταυτότητα',
-                profile_card1_body: 'Ιατρός Αποκατάστασης και Αισθητικής Αποκατάστασης με AAAM Board Certification. Η κλινική του πρακτική γεφυρώνει τη νευρολογική ιατρική αποκατάσταση με\
-         injectable θεραπείες και αναγεννητικά προσανατολισμένη αισθητική αποκατάσταση.',
-                chip_aesthetic: 'Αισθητική αποκατάσταση',
-                chip_regenerative: 'Αναγεννητική ιατρική',
-                profile_card2_title: 'Δημόσια καταγεγραμμένοι ρόλοι',
-                profile_card2_body: 'Head of Outpatient Department στο Attica Rehabilitation Center, Research Associate στο Second Department of Neurology του Attikon University Hospital / ΕΚΠΑ, και \
-         ενεργός ως instructor και trainer σε injectables και αισθητική ιατρική.',
-                chip_neuro: 'Νευροαποκατάσταση',
-                chip_injectables: 'Injectables',
-                chip_training: 'Training και teaching',
-                focus_title: 'Focus Areas',
-                focus_intro: 'Τρεις βασικοί άξονες ορίζουν την κλινική και εκπαιδευτική του δραστηριότητα.',
-                focus1_title: 'Φυσική ιατρική και αποκατάσταση',
-                focus1_body: 'Ειδικός Φυσικής Ιατρικής και Αποκατάστασης με κλινική εστίαση στη νευρολογική αποκατάσταση, τη διαχείριση σπαστικότητας και τα πρωτόκολλα λειτουργικής ανάρρωσης.',
-                focus2_title: 'Αισθητική αποκατάσταση',
-                focus2_body: 'Ιδιαίτερο κλινικό ενδιαφέρον στην αισθητική αποκατάσταση νευρολογικών ασθενών, με συνδυασμό λειτουργικής αποκατάστασης και injectable/αναγεννητικών προσεγγίσεων για το πρόσωπο και το σώμα.',
-                focus3_title: 'Injectables και αναγεννητική πρακτική',
-                focus3_body: 'Trainer και key opinion leader για injectable προϊόντα, συμπεριλαμβανομένων Botox, Dysport, Pluryal και Jalupro. Διεθνής trainer και speaker για Burgeon x Vivacy, με κλινική δραστηριότητα\
-          σε anti-aging και αναγεννητικά αισθητικά πρωτόκολλα.',
-                pub_title: 'Selected public academic activity',
-                pub_intro: 'Μια δομημένη επισκόπηση των ακαδημαϊκών συνδέσεών του, των ολοκληρωμένων credentials και της ευρύτερης επαγγελματικής και εκπαιδευτικής δραστηριότητάς του.',
-                pub1_title: 'Ακαδημαϊκές και θεσμικές συνδέσεις',
-                pub1_body: 'Research Associate, Second Department of Neurology, Attikon University Hospital / ΕΚΠΑ. Προηγούμενος ρόλος ως Scientific Director of Rehabilitation στο Centre Animus, με παράλληλη\
-           University Fellowship στο Neurology Department, University of Thessaly.',
-                pub2_title: 'Ολοκληρωμένη εκπαίδευση και επαγγελμαικά credentials',
-                pub2_body: 'MD, FEBPRM (Fellow of the European Board of Physical and Rehabilitation Medicine). AAAM Board Certified στην anti-aging και αισθητική ιατρική.',
-                pub3_title: 'Extra επαγγελματική και εκπαιδευτική δραστηριότητα',
-                pub3_body: 'Instructor και trainer σε injectable και αισθητική ιατρική. Speaker σε διεθνή συνέδρια. Συν-συγγραφέας εγγράφου συναίνεσης του 2022 για τη διαχείριση σπαστικότητας στη σκλήρυνση κατά πλάκας.\
-         Δημιουργός του πρωτοκόλλου Guru FrameLift 3D για αναδόμηση προσώπου.',
-                contact_title: 'Contact',
-                contact_intro: 'Επικοινωνήστε μαζί μας ή επισκεφθείτε το ιατρείο.',
-                contact_box_title: 'Άμεσα στοιχεία',
-                contact_phone_label: 'Τηλέφωνο',
-                contact_address_label: 'Διεύθυνση',
-                contact_links_title: 'Public profiles',
-                contact_links_body: 'Πρόσθετα επαγγελματικά προφίλ είναι διαθέσιμα στους παρακάτω συνδέσμους.'
-            }
-        };
-        const nodes = document.querySelectorAll('[data-i18n]');
-        const langBtns = document.querySelectorAll('[data-lang]');
-        function setLang(lang) {
-            document.documentElement.lang = lang === 'el' ? 'el' : 'en';
-            nodes.forEach(n => {
-                const k = n.dataset.i18n;
-                if (t[lang][k]) n.textContent = t[lang][k]
-            });
-            langBtns.forEach(b => {
-                const on = b.dataset.lang === lang;
-                b.classList.toggle('active', on);
-                b.setAttribute('aria-pressed', on ? 'true' : 'false')
-            })
-        }
-        langBtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
-        setLang('en');
-        const root = document.documentElement, toggle = document.querySelector('[data-theme-toggle]');
-        let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        root.setAttribute('data-theme', theme);
-        toggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme) });
-    </script>
-</body>
 
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Dr. Nasos — Home">
+        <img src="logos/Logo3_cropped.png" alt="Dr. Nasos — Neurorehabilitation" class="brand-logo" />
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="#services" class="nav-link" data-i18n="nav.services">Services</a>
+        <a href="#clinics" class="nav-link" data-i18n="nav.clinics">Clinics</a>
+        <a href="#publications" class="nav-link" data-i18n="nav.publications">Publications</a>
+        <a href="#media" class="nav-link" data-i18n="nav.media">Media</a>
+        <a href="#conferences" class="nav-link" data-i18n="nav.conferences">Conferences</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.book">Book Appointment</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <span class="lang-sep"></span>
+          <button class="lang-btn" data-lang="el" aria-pressed="false">ΕΛ</button>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-sm header-cta" data-i18n="nav.book">Book Appointment</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="eyebrow reveal" data-i18n="hero.badge">Neurological Rehabilitation Medicine</span>
+          <h1 class="hero-title reveal delay-1">
+            <span data-i18n="hero.title1">Restoring Function.</span><br />
+            <em data-i18n="hero.title2">Elevating Life.</em>
+          </h1>
+          <p class="hero-sub reveal delay-2" data-i18n="hero.sub">
+            Advanced neurorehabilitation, aesthetic rehabilitation and regenerative
+            medicine — personalized for you.
+          </p>
+          <div class="hero-actions reveal delay-3">
+            <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Book Appointment</a>
+            <a href="#services" class="btn btn-outline" data-i18n="hero.cta2">Discover Our Approach</a>
+          </div>
+          <div class="hero-stats reveal delay-4">
+            <div class="stat">
+              <span class="stat-value">15+</span>
+              <span class="stat-label" data-i18n="hero.stat1">Years of Experience</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-value">2</span>
+              <span class="stat-label" data-i18n="hero.stat2">Private Clinics</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-value">40+</span>
+              <span class="stat-label" data-i18n="hero.stat3">Scientific Publications</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal delay-2" aria-hidden="true">
+          <div class="hero-visual-card">
+            <svg class="neuro-svg" viewBox="0 0 400 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="topGlow" cx="50%" cy="10%" r="55%">
+                  <stop offset="0%" stop-color="#C8A46A" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#C8A46A" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="dotGlow" x="-120%" y="-120%" width="340%" height="340%">
+                  <feGaussianBlur stdDeviation="4" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+
+              <rect width="400" height="470" fill="url(#topGlow)"/>
+
+              <!-- spinal column: soft halo + fine line -->
+              <path class="neuro-halo" d="M200 40 C165 120 235 190 200 270 C172 335 220 400 200 445"/>
+              <path class="neuro-path" d="M200 40 C165 120 235 190 200 270 C172 335 220 400 200 445"/>
+
+              <!-- dendrite branches reaching out from the vertebrae -->
+              <g class="dendrites">
+                <path d="M173 73 Q 148 66 130 58"/>
+                <path d="M200 155 Q 172 140 150 130"/>
+                <path d="M200 155 Q 230 144 258 140"/>
+                <path d="M209 200 Q 240 204 268 212"/>
+                <path d="M191 318 Q 160 306 136 300"/>
+                <path d="M197 365 Q 228 374 256 384"/>
+                <circle cx="130" cy="58" r="3"/>
+                <circle cx="150" cy="130" r="3"/>
+                <circle cx="258" cy="140" r="3"/>
+                <circle cx="268" cy="212" r="3"/>
+                <circle cx="136" cy="300" r="3"/>
+                <circle cx="256" cy="384" r="3"/>
+              </g>
+
+              <!-- vertebrae -->
+              <g class="vertebrae" filter="url(#dotGlow)">
+                <circle cx="200" cy="40"  r="4.5"/>
+                <circle cx="173" cy="73"  r="5.5"/>
+                <circle cx="172" cy="114" r="6.5"/>
+                <circle cx="200" cy="155" r="7"/>
+                <circle cx="209" cy="200" r="7.5"/>
+                <circle cx="208" cy="246" r="7.5"/>
+                <circle cx="191" cy="318" r="7"/>
+                <circle cx="197" cy="365" r="6.5"/>
+                <circle cx="205" cy="408" r="6"/>
+                <circle cx="200" cy="445" r="5"/>
+              </g>
+
+              <!-- nerve impulse travelling down the spine -->
+              <circle class="signal" r="3.5" filter="url(#dotGlow)">
+                <animateMotion dur="4.5s" repeatCount="indefinite"
+                  path="M200 40 C165 120 235 190 200 270 C172 335 220 400 200 445"/>
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.9;1"
+                  dur="4.5s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+
+            <div class="emblem-divider"><span></span><i></i><span></span></div>
+            <p class="emblem-caption" data-i18n="hero.cardTitle">Neurorehabilitation</p>
+            <p class="emblem-sub" data-i18n="hero.cardSub">Restoring the body's finest connections</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,45 L1440,70 L0,70 Z" fill="#1F2A37"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ PILLARS (dark strip) ============ -->
+    <section class="pillars">
+      <div class="container">
+        <div class="pillars-grid">
+          <div class="pillar reveal">
+            <span class="pillar-icon">
+              <svg viewBox="0 0 48 48"><path d="M18 6c6 4 6 8 0 12s-6 8 0 12 6 8 0 12M30 6c-6 4-6 8 0 12s6 8 0 12-6 8 0 12M17 12h14M17 24h14M17 36h14"/></svg>
+            </span>
+            <h3 data-i18n="pillar1.t">Science Driven</h3>
+            <p data-i18n="pillar1.d">Evidence-based medicine</p>
+          </div>
+          <div class="pillar reveal delay-1">
+            <span class="pillar-icon">
+              <svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="7"/><path d="M10 40c1.5-8 6.5-12 14-12s12.5 4 14 12"/></svg>
+            </span>
+            <h3 data-i18n="pillar2.t">Personalized Care</h3>
+            <p data-i18n="pillar2.d">Tailored to your unique needs</p>
+          </div>
+          <div class="pillar reveal delay-2">
+            <span class="pillar-icon">
+              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="5"/><circle cx="12" cy="12" r="4"/><circle cx="36" cy="12" r="4"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/><path d="M15 15l5.5 5.5M33 15l-5.5 5.5M15 33l5.5-5.5M33 33l-5.5-5.5"/></svg>
+            </span>
+            <h3 data-i18n="pillar3.t">Innovative Therapies</h3>
+            <p data-i18n="pillar3.d">Cutting-edge regenerative solutions</p>
+          </div>
+          <div class="pillar reveal delay-3">
+            <span class="pillar-icon">
+              <svg viewBox="0 0 48 48"><path d="M24 40c-2-6-8-8-13-6 1-6 6-10 13-10s12 4 13 10c-5-2-11 0-13 6z"/><path d="M24 24c-3-5-2-11 0-16 2 5 3 11 0 16z"/><path d="M17 27c-4-3-6-8-6-12 4 2 7 6 8 10M31 27c4-3 6-8 6-12-4 2-7 6-8 10"/></svg>
+            </span>
+            <h3 data-i18n="pillar4.t">Holistic Wellness</h3>
+            <p data-i18n="pillar4.d">Body, mind &amp; function in harmony</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <div class="portrait-frame">
+              <div class="portrait-photo">
+                <img src="logos/Screenshot_4.png" alt="Dr. Nasos Tsivgoulis" />
+              </div>
+              <div class="portrait-badge">
+                <span class="portrait-badge-value">MD</span>
+                <span class="portrait-badge-label" data-i18n="about.badge">Neurological Rehabilitation Medicine</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-content">
+            <span class="eyebrow reveal" data-i18n="about.label">About the Doctor</span>
+            <h2 class="section-title reveal delay-1" data-i18n="about.title">Dr. Nasos Tsivgoulis</h2>
+            <p class="lead reveal delay-2" data-i18n="about.p1">
+              Dr. Nasos Tsivgoulis is a physician with strong foundations in Neurological
+              Rehabilitation Medicine, dedicated to restoring movement, independence and
+              quality of life for his patients.
+            </p>
+            <p class="reveal delay-3" data-i18n="about.p2">
+              Combining evidence-based neurorehabilitation with aesthetic rehabilitation and
+              regenerative medicine, he designs personalized treatment programs that address
+              the whole person — not just the condition. His approach unites precision in
+              science with genuine compassion in care.
+            </p>
+            <ul class="about-highlights reveal delay-4">
+              <li><span class="check"></span><span data-i18n="about.h1">Specialized in neurological rehabilitation &amp; functional recovery</span></li>
+              <li><span class="check"></span><span data-i18n="about.h2">Advanced training in regenerative &amp; musculoskeletal medicine</span></li>
+              <li><span class="check"></span><span data-i18n="about.h3">Active researcher, author and international speaker</span></li>
+            </ul>
+            <a href="#education" class="text-link reveal delay-5" data-i18n="about.link">View education &amp; training <span aria-hidden="true">›</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION & TRAINING ============ -->
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="edu.label">Medical Education &amp; Training</span>
+          <h2 class="section-title" data-i18n="edu.title">A Foundation of Excellence</h2>
+          <p class="section-sub" data-i18n="edu.sub">Academic background and clinical training across leading institutions.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2004 – 2010</span>
+              <h3 data-i18n="edu.i1t">Doctor of Medicine (MD)</h3>
+              <p data-i18n="edu.i1d">School of Medicine, National &amp; Kapodistrian University of Athens, Greece.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal delay-1">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2011 – 2016</span>
+              <h3 data-i18n="edu.i2t">Residency — Physical Medicine &amp; Rehabilitation</h3>
+              <p data-i18n="edu.i2d">Specialty training in Physical &amp; Rehabilitation Medicine, University General Hospital, Athens.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal delay-2">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2016 – 2018</span>
+              <h3 data-i18n="edu.i3t">Fellowship — Neurorehabilitation</h3>
+              <p data-i18n="edu.i3d">Clinical fellowship in Neurological Rehabilitation with emphasis on stroke and neurotrauma recovery.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal delay-3">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2018 – 2020</span>
+              <h3 data-i18n="edu.i4t">MSc — Regenerative Medicine</h3>
+              <p data-i18n="edu.i4d">Postgraduate studies in regenerative and musculoskeletal medicine, with distinction.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal delay-4">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2020 —</span>
+              <h3 data-i18n="edu.i5t">Continuing Certification &amp; Faculty Roles</h3>
+              <p data-i18n="edu.i5d">Certified in interventional ultrasound-guided procedures; invited faculty at European rehabilitation courses.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="svc.label">Our Approach</span>
+          <h2 class="section-title" data-i18n="svc.title">Areas of Expertise</h2>
+          <p class="section-sub" data-i18n="svc.sub">Comprehensive, personalized programs built on three complementary disciplines.</p>
+        </div>
+        <div class="cards-grid cards-4">
+          <article class="card reveal">
+            <span class="card-icon">
+              <svg viewBox="0 0 48 48"><path d="M24 8c-8 0-13 5-13 11 0 3-2 4-2 7s2 3 2 6c0 5 5 8 13 8M24 8c8 0 13 5 13 11 0 3 2 4 2 7s-2 3-2 6c0 5-5 8-13 8M24 8v32M18 16c2 2 4 2 6 1M30 24c-2 2-4 2-6 1M18 30c2 2 4 2 6 1"/></svg>
+            </span>
+            <h3 data-i18n="svc1.t">Neurorehabilitation</h3>
+            <p data-i18n="svc1.d">Restoring movement, independence and quality of life after stroke, brain and spinal cord injury.</p>
+          </article>
+          <article class="card reveal delay-1">
+            <span class="card-icon">
+              <svg viewBox="0 0 48 48"><path d="M30 6c-6 5-10 11-10 18 0 6 3 10 3 14 0 2-1 4-3 4M30 6c-2 5-1 9 1 13M18 14c-3 1-6 4-7 8"/><circle cx="33" cy="26" r="3"/><circle cx="30" cy="35" r="2"/></svg>
+            </span>
+            <h3 data-i18n="svc2.t">Aesthetic Rehabilitation</h3>
+            <p data-i18n="svc2.d">Enhancing natural beauty and function with medical precision and a conservative philosophy.</p>
+          </article>
+          <article class="card reveal delay-2">
+            <span class="card-icon">
+              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="6"/><circle cx="10" cy="14" r="4"/><circle cx="38" cy="14" r="4"/><circle cx="24" cy="40" r="4"/><path d="M13 17l6 4M35 17l-6 4M24 30v6"/></svg>
+            </span>
+            <h3 data-i18n="svc3.t">Regenerative Medicine</h3>
+            <p data-i18n="svc3.d">Promoting healing and longevity through advanced, minimally invasive biological therapies.</p>
+          </article>
+          <article class="card reveal delay-3">
+            <span class="card-icon">
+              <svg viewBox="0 0 48 48"><path d="M24 42c-3-8-10-10-16-8 1-8 8-13 16-13s15 5 16 13c-6-2-13 0-16 8z"/><path d="M24 21c-4-6-3-13 0-19 3 6 4 13 0 19z"/></svg>
+            </span>
+            <h3 data-i18n="svc4.t">Whole-Person Approach</h3>
+            <p data-i18n="svc4.d">Treating the root cause for lasting, meaningful results in health and daily function.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUOTE ============ -->
+    <section class="quote-band">
+      <div class="container">
+        <p class="quote reveal">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <span data-i18n="quote.text">Precision in science.&ensp;Compassion in care.&ensp;Excellence in results.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CLINICS ============ -->
+    <section class="section clinics" id="clinics">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="clinics.label">Clinics</span>
+          <h2 class="section-title" data-i18n="clinics.title">Where to Find Us</h2>
+          <p class="section-sub" data-i18n="clinics.sub">Two modern private clinics, designed around patient comfort and clinical excellence.</p>
+        </div>
+        <div class="cards-grid cards-2">
+          <article class="card clinic-card reveal">
+            <div class="clinic-photo" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M8 42V16l16-10 16 10v26M8 42h32M20 42v-12h8v12"/><path d="M24 18v8M20 22h8"/></svg>
+            </div>
+            <div class="clinic-body">
+              <h3 data-i18n="clinic1.name">Athens — Kolonaki Clinic</h3>
+              <ul class="clinic-details">
+                <li>
+                  <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                  <span data-i18n="clinic1.addr">12 Skoufa Street, Kolonaki, 106 73 Athens</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+                  <span>+30 210 123 4567</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+                  <span data-i18n="clinic1.hours">Mon – Fri: 09:00 – 20:00 · Sat: by appointment</span>
+                </li>
+              </ul>
+              <a href="#contact" class="text-link" data-i18n="clinics.book">Book at this clinic <span aria-hidden="true">›</span></a>
+            </div>
+          </article>
+          <article class="card clinic-card reveal delay-1">
+            <div class="clinic-photo" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M8 42V16l16-10 16 10v26M8 42h32M20 42v-12h8v12"/><path d="M24 18v8M20 22h8"/></svg>
+            </div>
+            <div class="clinic-body">
+              <h3 data-i18n="clinic2.name">Glyfada — Coastal Clinic</h3>
+              <ul class="clinic-details">
+                <li>
+                  <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                  <span data-i18n="clinic2.addr">45 Grigoriou Lampraki Avenue, 166 74 Glyfada</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+                  <span>+30 210 765 4321</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+                  <span data-i18n="clinic2.hours">Tue &amp; Thu: 10:00 – 19:00 · Sat: 10:00 – 14:00</span>
+                </li>
+              </ul>
+              <a href="#contact" class="text-link" data-i18n="clinics.book">Book at this clinic <span aria-hidden="true">›</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PUBLICATIONS ============ -->
+    <section class="section publications" id="publications">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="pubs.label">Publications</span>
+          <h2 class="section-title" data-i18n="pubs.title">Selected Scientific Work</h2>
+          <p class="section-sub" data-i18n="pubs.sub">Peer-reviewed research contributing to the advancement of rehabilitation medicine.</p>
+        </div>
+        <div class="pub-list">
+          <article class="pub-item reveal">
+            <span class="pub-year">2025</span>
+            <div class="pub-body">
+              <h3 data-i18n="pub1.t">Early intensive neurorehabilitation after ischemic stroke: functional outcomes at 12 months</h3>
+              <p class="pub-meta" data-i18n="pub1.j">Journal of Rehabilitation Medicine · Original Research</p>
+            </div>
+            <a href="#" class="pub-link" data-i18n="pubs.view">View</a>
+          </article>
+          <article class="pub-item reveal delay-1">
+            <span class="pub-year">2024</span>
+            <div class="pub-body">
+              <h3 data-i18n="pub2.t">Ultrasound-guided regenerative injections in chronic musculoskeletal pain: a systematic review</h3>
+              <p class="pub-meta" data-i18n="pub2.j">European Journal of Physical &amp; Rehabilitation Medicine · Review</p>
+            </div>
+            <a href="#" class="pub-link" data-i18n="pubs.view">View</a>
+          </article>
+          <article class="pub-item reveal delay-2">
+            <span class="pub-year">2023</span>
+            <div class="pub-body">
+              <h3 data-i18n="pub3.t">Robotics and virtual reality in gait re-education: current evidence and clinical integration</h3>
+              <p class="pub-meta" data-i18n="pub3.j">Neurorehabilitation &amp; Neural Repair · Review</p>
+            </div>
+            <a href="#" class="pub-link" data-i18n="pubs.view">View</a>
+          </article>
+          <article class="pub-item reveal delay-3">
+            <span class="pub-year">2022</span>
+            <div class="pub-body">
+              <h3 data-i18n="pub4.t">Spasticity management after acquired brain injury: an individualized multimodal protocol</h3>
+              <p class="pub-meta" data-i18n="pub4.j">Archives of Physical Medicine and Rehabilitation · Clinical Study</p>
+            </div>
+            <a href="#" class="pub-link" data-i18n="pubs.view">View</a>
+          </article>
+          <article class="pub-item reveal delay-4">
+            <span class="pub-year">2021</span>
+            <div class="pub-body">
+              <h3 data-i18n="pub5.t">Patient-reported outcomes in aesthetic rehabilitation: bridging function and confidence</h3>
+              <p class="pub-meta" data-i18n="pub5.j">Aesthetic Medicine Journal · Original Research</p>
+            </div>
+            <a href="#" class="pub-link" data-i18n="pubs.view">View</a>
+          </article>
+        </div>
+        <p class="pub-note reveal" data-i18n="pubs.note">Full publication list available on request or via academic profiles below.</p>
+      </div>
+    </section>
+
+    <!-- ============ MEDIA ============ -->
+    <section class="section media" id="media">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="media.label">Media Appearances</span>
+          <h2 class="section-title" data-i18n="media.title">In the Press &amp; On Air</h2>
+          <p class="section-sub" data-i18n="media.sub">Sharing medical knowledge with the wider public through television, podcasts and print.</p>
+        </div>
+        <div class="cards-grid cards-3">
+          <article class="card media-card reveal">
+            <div class="media-thumb" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="6" y="12" width="36" height="24" rx="3"/><path d="M20 20l9 4-9 4z"/><path d="M18 42h12"/></svg>
+              <span class="media-tag" data-i18n="media1.tag">TV Interview</span>
+            </div>
+            <div class="media-body">
+              <h3 data-i18n="media1.t">“The New Era of Stroke Recovery”</h3>
+              <p data-i18n="media1.d">National morning show feature on modern neurorehabilitation and what patients should expect.</p>
+              <a href="#" class="text-link" data-i18n="media.watch">Watch <span aria-hidden="true">›</span></a>
+            </div>
+          </article>
+          <article class="card media-card reveal delay-1">
+            <div class="media-thumb" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="18" y="6" width="12" height="22" rx="6"/><path d="M10 22c0 8 6 13 14 13s14-5 14-13M24 35v7M17 42h14"/></svg>
+              <span class="media-tag" data-i18n="media2.tag">Podcast</span>
+            </div>
+            <div class="media-body">
+              <h3 data-i18n="media2.t">“Regenerative Medicine, Demystified”</h3>
+              <p data-i18n="media2.d">A 45-minute conversation on the evidence, the myths, and the future of biologic therapies.</p>
+              <a href="#" class="text-link" data-i18n="media.listen">Listen <span aria-hidden="true">›</span></a>
+            </div>
+          </article>
+          <article class="card media-card reveal delay-2">
+            <div class="media-thumb" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M10 8h22v32H10zM32 14h6v26h-6M15 16h12M15 22h12M15 28h8"/></svg>
+              <span class="media-tag" data-i18n="media3.tag">Press Feature</span>
+            </div>
+            <div class="media-body">
+              <h3 data-i18n="media3.t">“Ageing Well: Movement as Medicine”</h3>
+              <p data-i18n="media3.d">Guest article in a leading health magazine on preserving function and independence with age.</p>
+              <a href="#" class="text-link" data-i18n="media.read">Read <span aria-hidden="true">›</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONFERENCES ============ -->
+    <section class="section conferences" id="conferences">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="conf.label">Conference Participation &amp; Speaking</span>
+          <h2 class="section-title" data-i18n="conf.title">Sharing Knowledge Worldwide</h2>
+          <p class="section-sub" data-i18n="conf.sub">Invited lectures, workshops and scientific presentations at national and international meetings.</p>
+        </div>
+        <div class="conf-list">
+          <article class="conf-item reveal">
+            <div class="conf-date"><span class="conf-year">2026</span><span class="conf-month" data-i18n="conf1.m">May</span></div>
+            <div class="conf-body">
+              <h3 data-i18n="conf1.t">ESPRM Congress — European Society of PRM</h3>
+              <p data-i18n="conf1.d">Invited speaker · “Individualized neurorehabilitation pathways after stroke”</p>
+            </div>
+            <span class="conf-loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span data-i18n="conf1.loc">Vienna, Austria</span></span>
+          </article>
+          <article class="conf-item reveal delay-1">
+            <div class="conf-date"><span class="conf-year">2025</span><span class="conf-month" data-i18n="conf2.m">Oct</span></div>
+            <div class="conf-body">
+              <h3 data-i18n="conf2.t">Panhellenic Congress of Physical &amp; Rehabilitation Medicine</h3>
+              <p data-i18n="conf2.d">Session chair &amp; lecturer · “Regenerative approaches in musculoskeletal rehabilitation”</p>
+            </div>
+            <span class="conf-loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span data-i18n="conf2.loc">Athens, Greece</span></span>
+          </article>
+          <article class="conf-item reveal delay-2">
+            <div class="conf-date"><span class="conf-year">2025</span><span class="conf-month" data-i18n="conf3.m">Mar</span></div>
+            <div class="conf-body">
+              <h3 data-i18n="conf3.t">World Congress for NeuroRehabilitation (WCNR)</h3>
+              <p data-i18n="conf3.d">Oral presentation · “Technology-assisted gait re-education: 3-year clinic outcomes”</p>
+            </div>
+            <span class="conf-loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span data-i18n="conf3.loc">Vancouver, Canada</span></span>
+          </article>
+          <article class="conf-item reveal delay-3">
+            <div class="conf-date"><span class="conf-year">2024</span><span class="conf-month" data-i18n="conf4.m">Jun</span></div>
+            <div class="conf-body">
+              <h3 data-i18n="conf4.t">ISPRM International Congress</h3>
+              <p data-i18n="conf4.d">Workshop faculty · “Ultrasound-guided interventions in the rehabilitation setting”</p>
+            </div>
+            <span class="conf-loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span data-i18n="conf4.loc">Sydney, Australia</span></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOCIAL ============ -->
+    <section class="section social" id="social">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="social.label">Social Media Profiles</span>
+          <h2 class="section-title" data-i18n="social.title">Follow &amp; Connect</h2>
+          <p class="section-sub" data-i18n="social.sub">Health education, clinic news and research updates — follow along.</p>
+        </div>
+        <div class="social-grid">
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="social-card reveal">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></span>
+            <span class="social-name">Facebook</span>
+            <span class="social-handle">/drnasos.gr</span>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-card reveal delay-1">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2"/></svg></span>
+            <span class="social-name">Instagram</span>
+            <span class="social-handle">@dr.nasos</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-card reveal delay-2">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5v6M7.5 7.6v.1M11.5 16.5v-3.5c0-1.4.9-2.5 2.4-2.5s2.6 1.1 2.6 2.5v3.5"/></svg></span>
+            <span class="social-name">LinkedIn</span>
+            <span class="social-handle">/in/nasos-tsivgoulis</span>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" class="social-card reveal delay-3">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="4"/><path d="M10.5 9.8l4.5 2.7-4.5 2.7z"/></svg></span>
+            <span class="social-name">YouTube</span>
+            <span class="social-handle">@DrNasosClinic</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="contact.label">Contact</span>
+          <h2 class="section-title" data-i18n="contact.title">Book Your Appointment</h2>
+          <p class="section-sub" data-i18n="contact.sub">Send a message and the clinic team will get back to you within one working day.</p>
+        </div>
+
+        <div class="contact-grid">
+          <form class="contact-form card reveal" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-name" data-i18n="form.name">Full Name *</label>
+                <input type="text" id="cf-name" name="name" required data-i18n-placeholder="form.namePh" placeholder="Your full name" />
+              </div>
+              <div class="form-field">
+                <label for="cf-phone" data-i18n="form.phone">Phone</label>
+                <input type="tel" id="cf-phone" name="phone" data-i18n-placeholder="form.phonePh" placeholder="+30 …" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-email" data-i18n="form.email">Email *</label>
+                <input type="email" id="cf-email" name="email" required data-i18n-placeholder="form.emailPh" placeholder="you@example.com" />
+              </div>
+              <div class="form-field">
+                <label for="cf-subject" data-i18n="form.subject">Reason for Visit</label>
+                <select id="cf-subject" name="subject">
+                  <option value="neuro" data-i18n="form.opt1">Neurorehabilitation</option>
+                  <option value="aesthetic" data-i18n="form.opt2">Aesthetic Rehabilitation</option>
+                  <option value="regen" data-i18n="form.opt3">Regenerative Medicine</option>
+                  <option value="second-opinion" data-i18n="form.opt4">Second Opinion</option>
+                  <option value="other" data-i18n="form.opt5">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cf-message" data-i18n="form.message">Message *</label>
+              <textarea id="cf-message" name="message" rows="5" required data-i18n-placeholder="form.messagePh" placeholder="Briefly describe how we can help…"></textarea>
+            </div>
+            <p class="form-privacy" data-i18n="form.privacy">Your information is confidential and used only to respond to your request.</p>
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="form.submit">Send Message</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="contact-side">
+            <div class="card contact-info reveal delay-1">
+              <h3 data-i18n="info.title">Contact Information</h3>
+              <ul>
+                <li>
+                  <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+                  <div><span class="info-label" data-i18n="info.phone">Phone</span><a href="tel:+302101234567">+30 210 123 4567</a></div>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                  <div><span class="info-label" data-i18n="info.email">Email</span><a href="mailto:info@drnasos.gr">info@drnasos.gr</a></div>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
+                  <div><span class="info-label" data-i18n="info.web">Website</span><a href="https://www.drnasos.gr" target="_blank" rel="noopener">www.drnasos.gr</a></div>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                  <div><span class="info-label" data-i18n="info.addr">Address</span><span data-i18n="info.addrV">12 Skoufa Street, Kolonaki, Athens</span></div>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+                  <div><span class="info-label" data-i18n="info.hours">Opening Hours</span><span data-i18n="info.hoursV">Mon – Fri: 09:00 – 20:00</span></div>
+                </li>
+              </ul>
+            </div>
+
+            <!--
+              GOOGLE MAPS: replace the placeholder below with your embed, e.g.
+              <iframe src="https://www.google.com/maps/embed?pb=…" loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            -->
+            <div class="card map-placeholder reveal delay-2" id="map">
+              <div class="map-pattern" aria-hidden="true"></div>
+              <div class="map-content">
+                <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                <h3 data-i18n="map.title">Google Map</h3>
+                <p data-i18n="map.note">Interactive map will appear here.</p>
+                <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/search/?api=1&query=Skoufa+12+Kolonaki+Athens" target="_blank" rel="noopener" data-i18n="map.open">Open in Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logos/Logo3_footer.png" alt="Dr. Nasos — Neurorehabilitation" class="footer-logo" />
+          <p data-i18n="footer.tag">Neurorehabilitation · Aesthetic Rehabilitation · Regenerative Medicine</p>
+          <div class="footer-social">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2"/></svg></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5v6M7.5 7.6v.1M11.5 16.5v-3.5c0-1.4.9-2.5 2.4-2.5s2.6 1.1 2.6 2.5v3.5"/></svg></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="4"/><path d="M10.5 9.8l4.5 2.7-4.5 2.7z"/></svg></a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <h4 data-i18n="footer.navTitle">Navigate</h4>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#services" data-i18n="nav.services">Services</a>
+          <a href="#clinics" data-i18n="nav.clinics">Clinics</a>
+          <a href="#publications" data-i18n="nav.publications">Publications</a>
+          <a href="#conferences" data-i18n="nav.conferences">Conferences</a>
+        </nav>
+        <div class="footer-contact">
+          <h4 data-i18n="footer.contactTitle">Contact</h4>
+          <a href="tel:+302101234567">+30 210 123 4567</a>
+          <a href="mailto:info@drnasos.gr">info@drnasos.gr</a>
+          <span data-i18n="info.addrV">12 Skoufa Street, Kolonaki, Athens</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Dr. Nasos Tsivgoulis. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p class="footer-disclaimer" data-i18n="footer.disclaimer">Content on this website is for information only and does not replace medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
 </html>

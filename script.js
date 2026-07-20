@@ -175,7 +175,7 @@ const I18N = {
     "info.email": "Email",
     "info.web": "Website",
     "info.addr": "Address",
-    "info.addrV": "12 Skoufa Street, Kolonaki, Athens",
+    "info.addrV": "12 Skoufa Street, Kolonaki, Athens\n 45 Grigoriou Lampraki Avenue, Glyfada",
     "info.hours": "Opening Hours",
     "info.hoursV": "Mon – Fri: 09:00 – 20:00",
     "map.title": "Google Map",
@@ -355,7 +355,7 @@ const I18N = {
     "info.email": "Email",
     "info.web": "Ιστότοπος",
     "info.addr": "Διεύθυνση",
-    "info.addrV": "Σκουφά 12, Κολωνάκι, Αθήνα",
+    "info.addrV": "Σκουφά 12, Κολωνάκι, Αθήνα\nΛεωφ. Γρηγορίου Λαμπράκη 45, Γλυφάδα",
     "info.hours": "Ωράριο Λειτουργίας",
     "info.hoursV": "Δευ – Παρ: 09:00 – 20:00",
     "map.title": "Χάρτης Google",
@@ -374,7 +374,7 @@ const I18N = {
    Language switching
    ------------------------------------------------------------ */
 const LANG_KEY = "drnasos-lang";
-let currentLang = localStorage.getItem(LANG_KEY) || "en";
+let currentLang = localStorage.getItem(LANG_KEY) || "el";
 
 function applyLanguage(lang) {
   const dict = I18N[lang];

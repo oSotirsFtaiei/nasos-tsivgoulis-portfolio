@@ -1416,3 +1416,7 @@ p + p { margin-top: 1rem; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .back-to-top { right: 16px; bottom: 16px; }
 }
+
+span[data-i18n="info.addrV"] {
+    white-space: pre-line;
+}

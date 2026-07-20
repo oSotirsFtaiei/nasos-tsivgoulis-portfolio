@@ -63,6 +63,23 @@ h1, h2, h3, h4 {
   font-weight: 600;
 }
 
+/* Greek layout: Playfair Display's Greek glyphs are noticeably thinner/plainer
+   than its Latin design, so headings look like a mismatched font next to English.
+   Cormorant was drawn with proper Greek letterforms, keeping the same elegant,
+   high-contrast character in both languages. */
+html[lang="el"] {
+  --font-head: "Cormorant", "Playfair Display", Georgia, serif;
+}
+html[lang="el"] h1,
+html[lang="el"] h2,
+html[lang="el"] h3,
+html[lang="el"] h4 {
+  font-weight: 700;
+}
+html[lang="el"] .hero-title { font-size: clamp(2.1rem, 4.4vw, 3.4rem); }
+html[lang="el"] .section-title { font-size: clamp(2.1rem, 3.7vw, 2.95rem); }
+html[lang="el"] .quote { font-weight: 500; }
+
 .section-title {
   font-size: clamp(1.9rem, 3.4vw, 2.7rem);
   margin-bottom: 0.6rem;
